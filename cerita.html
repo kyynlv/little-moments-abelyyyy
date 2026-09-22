@@ -1,0 +1,2360 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>cerita kita — iky ♡ abel</title>
+
+<style>
+
+:root{
+  --pink:#ff5f9e;
+  --pink2:#ff9fc4;
+  --pink3:#ffe4ef;
+  --soft:#fff7fa;
+  --white:#fff;
+  --ink:#30222b;
+  --muted:#735b68;
+  --line:#ffd0e1;
+  --shadow:0 18px 50px rgba(255,95,158,.17);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+
+  font-family:
+  Inter,
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+
+  color:var(--ink);
+
+  background:
+  radial-gradient(
+    circle at 5% 5%,
+    #ffe0ec 0 8%,
+    transparent 25%
+  ),
+  radial-gradient(
+    circle at 95% 20%,
+    #ffeaf3 0 8%,
+    transparent 27%
+  ),
+  linear-gradient(
+    135deg,
+    #fff,
+    #fff6fa,
+    #fff
+  );
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+.nav{
+
+  position:fixed;
+
+  z-index:100;
+
+  top:14px;
+
+  left:50%;
+
+  transform:
+  translateX(-50%);
+
+  width:min(94%,760px);
+
+  padding:10px 14px;
+
+  border:
+  1px solid #ffffffcc;
+
+  background:#ffffffd9;
+
+  backdrop-filter:
+  blur(18px);
+
+  border-radius:999px;
+
+  box-shadow:
+  0 10px 35px
+  rgba(255,95,158,.15);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+}
+
+.brand{
+
+  color:var(--pink);
+
+  font-weight:950;
+
+  letter-spacing:-.5px;
+}
+
+.navlinks{
+
+  display:flex;
+
+  gap:5px;
+
+  flex-wrap:wrap;
+
+  justify-content:flex-end;
+}
+
+.navlinks a{
+
+  padding:
+  8px 12px;
+
+  border-radius:999px;
+
+  font-size:12px;
+
+  font-weight:850;
+
+  transition:.25s;
+}
+
+.navlinks a:hover{
+
+  background:#ffe4ee;
+
+  color:#df3978;
+
+  transform:
+  translateY(-2px);
+}
+
+@media(max-width:650px){
+
+  .brand{
+    display:none;
+  }
+
+  .nav{
+    justify-content:center;
+  }
+
+  .navlinks a{
+    padding:
+    7px 9px;
+  }
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music{
+
+  position:fixed;
+
+  right:16px;
+
+  bottom:16px;
+
+  z-index:120;
+
+  border:0;
+
+  padding:
+  12px 16px;
+
+  border-radius:999px;
+
+  background:var(--pink);
+
+  color:white;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  box-shadow:
+  0 12px 30px
+  rgba(255,95,158,.4);
+
+  transition:.25s;
+}
+
+.music:hover{
+
+  transform:
+  translateY(-4px)
+  scale(1.03);
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+  width:min(950px,92%);
+
+  margin:auto;
+
+  padding:
+  115px 0 80px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+  min-height:
+  75vh;
+
+  display:grid;
+
+  place-items:center;
+
+  text-align:center;
+
+  position:relative;
+}
+
+.kicker{
+
+  display:inline-block;
+
+  padding:
+  8px 15px;
+
+  border-radius:999px;
+
+  background:#ffe5ef;
+
+  color:#df3978;
+
+  font-size:13px;
+
+  font-weight:900;
+}
+
+h1{
+
+  font-size:
+  clamp(48px,9vw,94px);
+
+  line-height:.92;
+
+  letter-spacing:-6px;
+
+  margin:
+  22px 0 18px;
+}
+
+h1 span{
+  color:var(--pink);
+}
+
+.hero p{
+
+  max-width:720px;
+
+  margin:auto;
+
+  color:var(--muted);
+
+  line-height:1.85;
+
+  font-size:
+  clamp(15px,2vw,19px);
+}
+
+.scroll{
+
+  margin-top:28px;
+
+  display:inline-block;
+
+  color:#d83d78;
+
+  font-size:13px;
+
+  font-weight:900;
+
+  animation:
+  bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(7px);
+  }
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+
+  margin:
+  55px 0;
+}
+
+.section-title{
+
+  text-align:center;
+
+  margin-bottom:25px;
+}
+
+.section-title .number{
+
+  display:inline-block;
+
+  color:#e13d7b;
+
+  background:#ffe5ef;
+
+  padding:
+  7px 12px;
+
+  border-radius:999px;
+
+  font-size:12px;
+
+  font-weight:900;
+}
+
+.section-title h2{
+
+  font-size:
+  clamp(28px,5vw,48px);
+
+  margin:
+  13px 0 8px;
+
+  letter-spacing:-2px;
+}
+
+.section-title p{
+
+  margin:auto;
+
+  max-width:650px;
+
+  color:var(--muted);
+
+  line-height:1.7;
+}
+
+
+/* =========================
+   STORY CARD
+========================= */
+
+.story{
+
+  position:relative;
+
+  background:#ffffffeb;
+
+  border:
+  1px solid var(--line);
+
+  border-radius:30px;
+
+  padding:
+  32px;
+
+  margin:
+  22px 0;
+
+  box-shadow:var(--shadow);
+
+  overflow:hidden;
+}
+
+.story:before{
+
+  content:"♡";
+
+  position:absolute;
+
+  right:-10px;
+
+  top:-20px;
+
+  font-size:110px;
+
+  color:#ffb3cf;
+
+  opacity:.18;
+}
+
+.story h3{
+
+  margin:
+  0 0 12px;
+
+  color:#df3d7b;
+
+  font-size:22px;
+}
+
+.story p{
+
+  margin:
+  10px 0;
+
+  color:#5f4b57;
+
+  line-height:1.95;
+
+  font-size:16px;
+}
+
+.story strong{
+  color:#e03c79;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+
+  position:relative;
+
+  padding-left:35px;
+}
+
+.timeline:before{
+
+  content:"";
+
+  position:absolute;
+
+  left:10px;
+
+  top:0;
+
+  bottom:0;
+
+  width:3px;
+
+  background:
+  linear-gradient(
+    #ff7eaf,
+    #ffd1e1
+  );
+
+  border-radius:99px;
+}
+
+.timeline-item{
+
+  position:relative;
+
+  margin:
+  28px 0;
+}
+
+.timeline-item:before{
+
+  content:"♥";
+
+  position:absolute;
+
+  left:-36px;
+
+  top:25px;
+
+  width:28px;
+
+  height:28px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  background:var(--pink);
+
+  color:white;
+
+  font-size:12px;
+
+  box-shadow:
+  0 0 0 7px #ffe5ef;
+}
+
+.timeline-card{
+
+  background:white;
+
+  border:
+  1px solid var(--line);
+
+  border-radius:25px;
+
+  padding:25px;
+
+  box-shadow:var(--shadow);
+}
+
+.timeline-card h3{
+
+  margin:
+  0 0 8px;
+
+  color:#df3d78;
+}
+
+.timeline-card p{
+
+  margin:0;
+
+  color:#674f5c;
+
+  line-height:1.85;
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+
+  margin:
+  30px 0;
+
+  padding:
+  32px;
+
+  border-radius:30px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ff62a2,
+    #ff9fc4
+  );
+
+  color:white;
+
+  font-size:
+  clamp(20px,3vw,29px);
+
+  font-weight:900;
+
+  line-height:1.5;
+
+  text-align:center;
+
+  box-shadow:
+  0 22px 55px
+  rgba(255,95,158,.25);
+}
+
+
+/* =========================
+   ADVICE
+========================= */
+
+.advice-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:18px;
+}
+
+@media(max-width:650px){
+
+  .advice-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.advice{
+
+  background:white;
+
+  border:
+  1px solid var(--line);
+
+  border-radius:25px;
+
+  padding:25px;
+
+  box-shadow:var(--shadow);
+
+  transition:.3s;
+}
+
+.advice:hover{
+
+  transform:
+  translateY(-6px);
+
+  box-shadow:
+  0 25px 50px
+  rgba(255,95,158,.22);
+}
+
+.advice .emoji{
+
+  font-size:32px;
+}
+
+.advice h3{
+
+  margin:
+  12px 0 8px;
+
+  color:#df3d78;
+}
+
+.advice p{
+
+  margin:0;
+
+  color:#67515d;
+
+  line-height:1.8;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+
+  background:white;
+
+  border:
+  1px solid var(--line);
+
+  border-radius:32px;
+
+  padding:
+  35px;
+
+  box-shadow:var(--shadow);
+
+  line-height:2;
+
+  color:#5f4b57;
+
+  font-size:16px;
+}
+
+.letter .hello{
+
+  color:var(--pink);
+
+  font-size:26px;
+
+  font-weight:950;
+
+  margin-bottom:15px;
+}
+
+.letter strong{
+  color:var(--pink);
+}
+
+
+/* =========================
+   PROMISE
+========================= */
+
+.promise{
+
+  text-align:center;
+
+  padding:
+  40px 25px;
+
+  border-radius:35px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #fff,
+    #ffeaf3
+  );
+
+  border:
+  1px solid var(--line);
+
+  box-shadow:var(--shadow);
+}
+
+.promise .heart{
+
+  position:static;
+
+  font-size:65px;
+
+  animation:
+  heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat{
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.15);
+  }
+}
+
+.promise h2{
+
+  color:#df3d78;
+
+  font-size:
+  clamp(25px,5vw,42px);
+
+  margin:
+  15px 0;
+}
+
+.promise p{
+
+  max-width:650px;
+
+  margin:auto;
+
+  color:#67515d;
+
+  line-height:1.9;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.buttons{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:12px;
+
+  flex-wrap:wrap;
+
+  margin-top:35px;
+}
+
+.btn{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  padding:
+  13px 18px;
+
+  border-radius:999px;
+
+  background:white;
+
+  border:
+  1px solid var(--line);
+
+  box-shadow:var(--shadow);
+
+  font-weight:900;
+
+  transition:.25s;
+}
+
+.btn:hover{
+
+  transform:
+  translateY(-4px);
+}
+
+.btn.primary{
+
+  background:var(--pink);
+
+  color:white;
+
+  border-color:var(--pink);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+  text-align:center;
+
+  padding:
+  25px 20px 35px;
+
+  color:#a07f8e;
+
+  font-size:12px;
+}
+
+
+/* =========================
+   FLOATING HEART
+========================= */
+
+.floating-heart{
+
+  position:fixed;
+
+  pointer-events:none;
+
+  z-index:2;
+
+  bottom:-30px;
+
+  animation:
+  floatHeart
+  linear
+  forwards;
+}
+
+@keyframes floatHeart{
+
+  from{
+
+    transform:
+    translateY(0)
+    scale(.6)
+    rotate(0deg);
+
+    opacity:0;
+  }
+
+  15%{
+    opacity:1;
+  }
+
+  to{
+
+    transform:
+    translateY(-110vh)
+    scale(1.2)
+    rotate(25deg);
+
+    opacity:0;
+  }
+}
+
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+
+  animation:
+  rise .8s both;
+}
+
+@keyframes rise{
+
+  from{
+
+    opacity:0;
+
+    transform:
+    translateY(25px);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav class="nav">
+
+  <div class="brand">
+    iky ♡ abel
+  </div>
+
+  <div class="navlinks">
+
+    <a href="index.html">
+      home
+    </a>
+
+    <a href="cerita.html">
+      cerita
+    </a>
+
+    <a href="galeri.html">
+      foto
+    </a>
+
+    <a href="surat.html">
+      surat
+    </a>
+
+  </div>
+
+</nav>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio
+  id="loveMusic"
+  loop
+  preload="none"
+  src="I_Lay_My_Love_On_You.mp3">
+</audio>
+
+<button
+  class="music"
+  id="musicBtn">
+
+  🎵 putar I Lay My Love On You
+
+</button>
+
+
+
+<main class="page">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div>
+
+    <div class="kicker">
+      chapter 01 • how it all started
+    </div>
+
+    <h1>
+
+      cerita<br>
+
+      <span>kita</span> 💗
+
+    </h1>
+
+    <p>
+
+      dua orang yang awalnya bahkan
+      nggak punya rencana buat jadi
+      apa-apa, ketemu secara nggak sengaja
+      di Telegram, lalu entah kenapa
+      ceritanya malah sampai sejauh ini
+
+    </p>
+
+    <div class="scroll">
+      ↓ baca dari awal yaa
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     01
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      01 • awal yang nggak direncanakan
+    </div>
+
+    <h2>
+      semuanya dimulai dari Telegram 📱
+    </h2>
+
+    <p>
+      dan lucunya, nggak ada satu pun dari
+      kita yang tahu kalau obrolan random itu
+      bakal berubah jadi sesuatu yang berarti
+    </p>
+
+  </div>
+
+
+  <div class="story">
+
+    <h3>
+      “kok bisa ya kita sampai di sini?”
+    </h3>
+
+    <p>
+
+      kalau dipikir-pikir lagi, awal kita
+      kenal tuh sebenarnya sederhana banget,
+      cuma dari Telegram, ngobrol,
+      bercanda, saling ganggu, dan mungkin
+      waktu itu kita sama-sama nggak kepikiran
+      kalau orang yang awalnya cuma ada di
+      layar hp bakal jadi seseorang yang
+      penting banget.
+
+    </p>
+
+    <p>
+
+      apalagi waktu awal-awal,
+      <strong>abel sebenarnya nggak serius sama aku</strong>
+
+      😭
+
+      bahkan awalnya kayak cuma mau main-main
+      aja. sedangkan aku juga nggak tahu
+      bakal sejauh apa semuanya.
+
+    </p>
+
+    <p>
+
+      tapi ternyata waktu punya cara sendiri
+      buat bikin dua orang yang awalnya
+      nggak sengaja bertemu jadi semakin
+      dekat.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     02
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      02 • dari iseng jadi nyaman
+    </div>
+
+    <h2>
+      terus kok malah jadi sayang? 🫠
+    </h2>
+
+  </div>
+
+
+  <div class="story">
+
+    <p>
+
+      awalnya mungkin cuma ngobrol biasa,
+      tapi lama-lama ada satu hal yang berubah,
+      yaitu kita mulai terbiasa mencari satu
+      sama lain.
+
+    </p>
+
+    <p>
+
+      dari yang awalnya,
+
+      “lagi ngapain?”
+
+      berubah jadi,
+
+      “kok nggak ngabarin?”
+
+      😭
+
+    </p>
+
+    <p>
+
+      dari yang awalnya cuma pengen ngobrol
+      sebentar, malah jadi lupa waktu.
+
+      dari yang awalnya nggak terlalu peduli,
+      perlahan mulai kepikiran.
+
+    </p>
+
+    <p>
+
+      dan mungkin cinta memang sering bekerja
+      seperti itu.
+
+      <strong>
+      dia nggak selalu datang dengan suara keras
+      </strong>
+
+      kadang dia cuma datang lewat kebiasaan kecil
+      sampai kita sadar,
+
+      “loh, kok sekarang dia penting banget?”
+
+    </p>
+
+  </div>
+
+
+  <div class="quote">
+
+    “aku nggak pernah merencanakan
+    buat jatuh sejauh ini,
+    tapi kalau ternyata ujungnya kamu,
+    aku nggak mau mengulang dari awal
+    dengan orang lain” 💗
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     03 TIMELINE
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      03 • perjalanan kita
+    </div>
+
+    <h2>
+      ternyata kita sudah sejauh ini 🥹
+    </h2>
+
+    <p>
+      bukan selalu tentang hari yang indah,
+      tapi tentang bagaimana kita tetap ada
+      setelah melewati hari yang nggak mudah
+    </p>
+
+  </div>
+
+
+  <div class="timeline">
+
+
+    <div class="timeline-item">
+
+      <div class="timeline-card">
+
+        <h3>
+          📱 pertama kali kenal
+        </h3>
+
+        <p>
+
+          semuanya dimulai dari sesuatu yang
+          sebenarnya nggak spesial.
+          cuma Telegram.
+
+          tapi dari sesuatu yang sederhana itu,
+          lahirlah cerita yang sekarang
+          punya begitu banyak halaman.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="timeline-item">
+
+      <div class="timeline-card">
+
+        <h3>
+          🫠 mulai nyaman
+        </h3>
+
+        <p>
+
+          kita mulai tahu kebiasaan masing-masing,
+          mulai tahu cara bikin satu sama lain
+          ketawa, mulai tahu hal-hal kecil yang
+          bisa bikin salah satu dari kita senang
+          atau bad mood.
+
+          ternyata mengenal seseorang lebih dalam
+          itu menyenangkan sekaligus bikin takut,
+          karena semakin kenal,
+          semakin besar juga rasa sayangnya.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="timeline-item">
+
+      <div class="timeline-card">
+
+        <h3>
+          💗 mulai benar-benar sayang
+        </h3>
+
+        <p>
+
+          sampai akhirnya kita bukan lagi
+          sekadar dua orang yang ngobrol.
+
+          ada rasa yang mulai tumbuh.
+
+          ada seseorang yang mulai dicari
+          ketika hari terasa berat.
+
+          ada nama yang otomatis muncul
+          ketika ada cerita yang ingin dibagikan.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="timeline-item">
+
+      <div class="timeline-card">
+
+        <h3>
+          🌧️ mulai ada masalah
+        </h3>
+
+        <p>
+
+          tentu saja hubungan kita nggak selalu
+          manis.
+
+          ada salah paham,
+          ada rasa kecewa,
+          ada cemburu,
+          ada hari ketika kita sama-sama
+          capek dan nggak tahu harus ngomong apa.
+
+          tapi mungkin justru di sinilah
+          kita belajar bahwa cinta bukan cuma
+          soal bahagia.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="timeline-item">
+
+      <div class="timeline-card">
+
+        <h3>
+          🫂 tetap memilih
+        </h3>
+
+        <p>
+
+          setelah semua yang terjadi,
+          kita masih ada.
+
+          mungkin belum sempurna,
+          mungkin masih sering salah,
+          tapi masih mau belajar.
+
+          dan buat aku,
+          itu jauh lebih berarti
+          daripada hubungan yang terlihat
+          sempurna tapi nggak mau berjuang.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     04
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      04 • buat abel
+    </div>
+
+    <h2>
+      ada beberapa hal yang mau aku bilang 💌
+    </h2>
+
+  </div>
+
+
+  <div class="letter">
+
+    <div class="hello">
+      hai abel... 💗
+    </div>
+
+    <p>
+
+      kalau kamu lagi baca bagian ini,
+      berarti kamu sudah sampai cukup jauh
+      di website kecil yang aku buat khusus
+      buat kamu.
+
+    </p>
+
+    <p>
+
+      mungkin website ini nggak seberapa.
+      mungkin juga nggak secanggih website
+      yang dibuat orang lain.
+
+      tapi setiap bagian di dalamnya aku buat
+      sambil mikirin kamu.
+
+    </p>
+
+    <p>
+
+      aku cuma mau kamu tahu satu hal:
+
+      <strong>
+      aku bersyukur pernah menemukan kamu
+      </strong>
+
+      di antara begitu banyak orang yang
+      mungkin bisa saja aku temui.
+
+    </p>
+
+    <p>
+
+      karena dari sekian banyak kemungkinan,
+      ternyata kita dipertemukan.
+
+      dan walaupun awalnya nggak sengaja,
+      aku nggak pernah menganggap
+      pertemuan kita sebagai sesuatu
+      yang sia-sia.
+
+    </p>
+
+    <p>
+
+      kamu mungkin nggak sadar,
+      tapi ada banyak hal kecil dari kamu
+      yang bikin hari aku jadi berbeda.
+
+      cara kamu ngomong,
+      cara kamu marah,
+      cara kamu bercanda,
+      bahkan tingkah kamu yang kadang
+      bikin aku pengen ketawa sekaligus
+      geleng-geleng kepala 😭
+
+    </p>
+
+    <p>
+
+      tapi justru itu kamu.
+
+      dan aku nggak mau mencintai kamu
+      hanya ketika kamu sedang baik-baik saja.
+
+      aku juga ingin belajar memahami kamu
+      ketika kamu sedang capek,
+      sedih,
+      marah,
+      atau bahkan ketika kamu sendiri
+      sedang nggak tahu apa yang kamu rasakan.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     05 ADVICE
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      05 • pesan kecil buat kita
+    </div>
+
+    <h2>
+      kalau nanti hubungan kita lagi berat 🌷
+    </h2>
+
+    <p>
+      semoga kita ingat beberapa hal ini
+    </p>
+
+  </div>
+
+
+  <div class="advice-grid">
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        🫶
+      </div>
+
+      <h3>
+        jangan buru-buru menyerah
+      </h3>
+
+      <p>
+
+        kalau sedang marah,
+        jangan langsung mengambil keputusan
+        yang mungkin akan kita sesali.
+
+        kasih waktu untuk tenang,
+        lalu bicara lagi.
+
+        karena kadang yang ingin kita tinggalkan
+        sebenarnya bukan orangnya,
+        tapi masalahnya.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        💬
+      </div>
+
+      <h3>
+        ngomong kalau ada yang sakit
+      </h3>
+
+      <p>
+
+        jangan berharap pasangan selalu
+        bisa membaca pikiran.
+
+        kalau ada sesuatu yang bikin sakit,
+        bilang.
+
+        kalau ada yang bikin takut,
+        bilang.
+
+        kalau butuh dipeluk,
+        bilang juga 😭
+
+        jangan menyimpan semuanya sendiri.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        🤍
+      </div>
+
+      <h3>
+        jangan membandingkan
+      </h3>
+
+      <p>
+
+        hubungan kita nggak harus seperti
+        hubungan orang lain.
+
+        mereka punya cerita sendiri,
+        kita juga punya cerita sendiri.
+
+        jadi jangan pernah merasa hubungan
+        kita kurang hanya karena melihat
+        hubungan orang lain terlihat lebih
+        sempurna.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        🧠
+      </div>
+
+      <h3>
+        belajar memahami
+      </h3>
+
+      <p>
+
+        cinta bukan tentang selalu setuju.
+
+        kadang kita berbeda pendapat.
+
+        yang penting bukan siapa yang menang,
+        tapi apakah setelah berdiskusi
+        kita masih bisa saling menghargai.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        🥺
+      </div>
+
+      <h3>
+        jangan gengsi untuk minta maaf
+      </h3>
+
+      <p>
+
+        kalau memang salah,
+        minta maaf.
+
+        nggak ada yang berkurang
+        dari harga diri kita karena
+        mengakui kesalahan.
+
+        justru hubungan bisa jadi
+        lebih kuat karena itu.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        💗
+      </div>
+
+      <h3>
+        tetap jadi tempat pulang
+      </h3>
+
+      <p>
+
+        semoga sesibuk apa pun dunia,
+        sesulit apa pun hari kita,
+        kita tetap bisa merasa aman
+        ketika cerita satu sama lain.
+
+        bukan karena kita sempurna,
+        tapi karena kita tahu
+        kita nggak sendirian.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     06
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      06 • tentang jarak
+    </div>
+
+    <h2>
+      mungkin kita nggak selalu dekat secara jarak 🥺
+    </h2>
+
+  </div>
+
+
+  <div class="story">
+
+    <p>
+
+      salah satu hal yang bikin perjalanan
+      kita nggak selalu mudah adalah jarak.
+
+      ada saat ketika aku pengen banget
+      ketemu kamu tapi yang bisa aku lakukan
+      cuma menatap layar hp.
+
+    </p>
+
+    <p>
+
+      kadang pengen cerita langsung,
+      pengen ketawa bareng,
+      pengen duduk di samping kamu,
+      tapi keadaan belum memungkinkan.
+
+    </p>
+
+    <p>
+
+      tapi aku belajar satu hal:
+
+      <strong>
+      jarak memang bisa memisahkan tempat,
+      tapi nggak harus memisahkan hati.
+      </strong>
+
+    </p>
+
+    <p>
+
+      selama kita masih sama-sama mau
+      menjaga komunikasi,
+      saling percaya,
+      dan saling menghargai,
+      semoga jarak cuma jadi bagian kecil
+      dari cerita kita.
+
+    </p>
+
+  </div>
+
+
+  <div class="quote">
+
+    “suatu hari nanti,
+    semoga semua chat ‘kapan ketemu?’
+    berubah menjadi
+    ‘aku sudah di depan rumah kamu’” 🥹💗
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     07
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      07 • kalau suatu hari kita bertengkar
+    </div>
+
+    <h2>
+      tolong ingat ini ya 🫂
+    </h2>
+
+  </div>
+
+
+  <div class="story">
+
+    <p>
+
+      kalau suatu hari kita sedang marah,
+      tolong jangan lupa bahwa sebelum
+      masalah itu datang,
+      kita pernah punya banyak alasan
+      untuk saling memilih.
+
+    </p>
+
+    <p>
+
+      kalau sedang emosi,
+      jangan gunakan semua kelemahan
+      pasangan sebagai senjata.
+
+      karena orang yang paling kita cintai
+      seharusnya bukan orang yang paling
+      kita sakiti ketika sedang marah.
+
+    </p>
+
+    <p>
+
+      kalau butuh waktu untuk sendiri,
+      nggak apa-apa.
+
+      tapi jangan membuat pasangan
+      terus menebak apakah hubungan
+      ini masih ada atau tidak.
+
+    </p>
+
+    <p>
+
+      dan kalau masalahnya sudah selesai,
+      jangan terus membawa masalah lama
+      untuk menghukum kesalahan baru.
+
+    </p>
+
+    <p>
+
+      kita boleh punya ego,
+      tapi jangan sampai ego lebih besar
+      daripada rasa sayang kita.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     08
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      08 • hal kecil yang aku suka dari kamu
+    </div>
+
+    <h2>
+      ternyata sayang itu detail kecil 💕
+    </h2>
+
+  </div>
+
+
+  <div class="advice-grid">
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        😂
+      </div>
+
+      <h3>
+        cara kamu bercanda
+      </h3>
+
+      <p>
+
+        kadang jokes kamu garing,
+        tapi anehnya tetap aku tunggu.
+
+        jangan geer dulu,
+        aku bilang lucu bukan berarti
+        semua jokes kamu lucu 😭
+
+      </p>
+
+    </div>
+
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        🥹
+      </div>
+
+      <h3>
+        cara kamu perhatian
+      </h3>
+
+      <p>
+
+        mungkin kelihatannya sederhana,
+        tapi perhatian kecil dari kamu
+        sering kali punya efek besar
+        buat aku.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        🩷
+      </div>
+
+      <h3>
+        kamu yang apa adanya
+      </h3>
+
+      <p>
+
+        aku nggak cuma mau kenal
+        versi kamu yang selalu bahagia.
+
+        aku juga mau kenal kamu
+        ketika kamu sedang nggak baik-baik saja.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="advice">
+
+      <div class="emoji">
+        🫠
+      </div>
+
+      <h3>
+        dan ya... kamu
+      </h3>
+
+      <p>
+
+        sebenarnya nggak perlu alasan
+        yang terlalu panjang.
+
+        aku sayang kamu ya karena kamu.
+
+        sesederhana itu.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     09
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      09 • pesan dari aku
+    </div>
+
+    <h2>
+      kalau nanti kamu merasa nggak cukup 💗
+    </h2>
+
+  </div>
+
+
+  <div class="letter">
+
+    <p>
+
+      abel,
+
+    </p>
+
+    <p>
+
+      kalau suatu hari kamu merasa
+      kamu nggak cukup baik,
+      tolong jangan terlalu keras
+      sama diri kamu sendiri.
+
+    </p>
+
+    <p>
+
+      kamu nggak harus selalu sempurna
+      untuk pantas dicintai.
+
+      kamu boleh capek.
+
+      kamu boleh salah.
+
+      kamu boleh punya hari yang buruk.
+
+      kamu boleh menangis.
+
+      kamu boleh nggak tahu harus
+      melakukan apa.
+
+    </p>
+
+    <p>
+
+      aku cuma berharap,
+      ketika kamu sedang berada
+      di titik itu,
+      kamu nggak merasa harus
+      menghadapi semuanya sendirian.
+
+    </p>
+
+    <p>
+
+      kalau aku bisa membantu,
+      aku akan coba.
+
+      kalau aku nggak bisa menyelesaikan
+      masalah kamu,
+      setidaknya aku bisa menemani
+      kamu melewatinya.
+
+    </p>
+
+    <p>
+
+      karena buat aku,
+      mencintai seseorang bukan berarti
+      harus selalu punya jawaban.
+
+      kadang cukup dengan berkata,
+
+      <strong>
+      “aku di sini, kita lewatin bareng-bareng.”
+      </strong>
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     10
+========================= -->
+
+<section class="section reveal">
+
+  <div class="section-title">
+
+    <div class="number">
+      10 • harapan aku
+    </div>
+
+    <h2>
+      aku nggak minta hubungan yang sempurna 🌷
+    </h2>
+
+  </div>
+
+
+  <div class="story">
+
+    <p>
+
+      aku nggak mau hubungan kita
+      terlihat sempurna di mata semua orang.
+
+      aku lebih pengen hubungan kita
+      benar-benar terasa nyaman
+      buat kita berdua.
+
+    </p>
+
+    <p>
+
+      aku pengen kita bisa tumbuh bersama.
+
+      sama-sama belajar.
+
+      sama-sama memperbaiki diri.
+
+      sama-sama mengejar mimpi.
+
+      dan kalau nanti hidup membawa
+      kita ke banyak tempat berbeda,
+      aku berharap kita tetap ingat
+      kenapa dulu kita memilih satu sama lain.
+
+    </p>
+
+    <p>
+
+      aku juga nggak bisa menjanjikan
+      bahwa setelah ini semuanya
+      akan selalu mudah.
+
+      tapi aku bisa berusaha
+      untuk tidak menjadikan kesulitan
+      sebagai alasan untuk berhenti
+      memperjuangkan kita.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     11 PROMISE
+========================= -->
+
+<section class="section reveal">
+
+  <div class="promise">
+
+    <div class="heart">
+      💗
+    </div>
+
+    <h2>
+      satu hal yang ingin aku jaga
+    </h2>
+
+    <p>
+
+      bukan cuma hubungan kita,
+      tapi juga cara kita memperlakukan
+      satu sama lain.
+
+      semoga ketika nanti kita melihat
+      kembali semua cerita ini,
+      kita bisa tersenyum dan berkata,
+
+      <strong>
+      “ternyata kita benar-benar
+      pernah berjuang sejauh itu.”
+      </strong>
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     12 END
+========================= -->
+
+<section class="section reveal">
+
+  <div class="quote">
+
+    “kalau cerita kita adalah sebuah buku,
+    aku nggak mau buru-buru sampai halaman terakhir
+
+    <br><br>
+
+    aku masih mau membaca banyak halaman
+    lagi sama kamu.” 📖💗
+
+  </div>
+
+</section>
+
+
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+  <a
+    class="btn"
+    href="index.html">
+
+    🏠 home
+
+  </a>
+
+
+  <a
+    class="btn primary"
+    href="galeri.html">
+
+    📸 lihat foto kita →
+
+  </a>
+
+
+  <a
+    class="btn"
+    href="surat.html">
+
+    💌 surat buat abel
+
+  </a>
+
+</div>
+
+
+</main>
+
+
+
+<footer class="footer">
+
+  dibuat dengan banyak cinta,
+  sedikit kode,
+  dan terlalu banyak mikirin abel 😭💗
+
+  <br><br>
+
+  iky ♡ abel
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   MUSIC
+========================= */
+
+const audio =
+document.getElementById("loveMusic");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+let playing=false;
+
+
+musicBtn.addEventListener(
+  "click",
+  async()=>{
+
+    try{
+
+      if(!playing){
+
+        await audio.play();
+
+        playing=true;
+
+        musicBtn.textContent=
+        "⏸️ matiin lagu";
+
+      }
+
+      else{
+
+        audio.pause();
+
+        playing=false;
+
+        musicBtn.textContent=
+        "🎵 putar I Lay My Love On You";
+
+      }
+
+    }
+
+    catch(error){
+
+      alert(
+        'pastikan file "I_Lay_My_Love_On_You.mp3" ada di folder utama repository 💗'
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart(){
+
+  const heart=
+  document.createElement("div");
+
+  heart.className=
+  "floating-heart";
+
+  const list=[
+    "💗",
+    "💖",
+    "💕",
+    "💘",
+    "🩷",
+    "♡",
+    "♥",
+    "✨"
+  ];
+
+  heart.textContent=
+  list[
+    Math.floor(
+      Math.random()*list.length
+    )
+  ];
+
+  heart.style.left=
+  Math.random()*100+"vw";
+
+  heart.style.fontSize=
+  (14+
+  Math.random()*24)+"px";
+
+  heart.style.animationDuration=
+  (5+
+  Math.random()*5)+"s";
+
+  document.body.appendChild(
+    heart
+  );
+
+  setTimeout(
+    ()=>{
+      heart.remove();
+    },
+    10000
+  );
+
+}
+
+setInterval(
+  createHeart,
+  650
+);
+
+</script>
+
+</<script src="music.js"></script>
+</body>
+</html>

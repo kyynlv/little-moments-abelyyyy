@@ -1,0 +1,2373 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f472a5">
+
+<title>little moments abel ♡</title>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+  --pink:#ed5b96;
+  --pink2:#f78bb5;
+  --soft:#fff5f9;
+  --ink:#332831;
+  --muted:#806b76;
+  --line:#f6d4e1;
+  --white:#fff;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color:var(--ink);
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(255,255,255,.95),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(255,190,215,.45),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255,220,234,.6),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #fff9fc,
+      #ffeaf2 48%,
+      #fff 100%
+    );
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+
+  background-image:
+    radial-gradient(
+      rgba(239,91,150,.25) 1px,
+      transparent 1px
+    );
+
+  background-size:55px 55px;
+  opacity:.25;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* =========================================================
+   AMBIENT GLOW
+========================================================= */
+
+.ambient{
+  position:fixed;
+  width:300px;
+  height:300px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,125,174,.18),
+      transparent 70%
+    );
+
+  pointer-events:none;
+  z-index:0;
+
+  filter:blur(15px);
+
+  animation:ambientMove 10s ease-in-out infinite;
+}
+
+.ambient.one{
+  top:15%;
+  left:-120px;
+}
+
+.ambient.two{
+  bottom:5%;
+  right:-120px;
+  animation-delay:4s;
+}
+
+@keyframes ambientMove{
+
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+
+  50%{
+    transform:translate(30px,-25px) scale(1.15);
+  }
+
+}
+
+/* =========================================================
+   OPENING SCREEN
+========================================================= */
+
+.opening{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #fff7fb 0%,
+      #ffe6f0 45%,
+      #ffd4e4 100%
+    );
+
+  transition:
+    opacity .9s ease,
+    visibility .9s ease;
+}
+
+.opening.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.opening-content{
+  width:min(90%,500px);
+
+  text-align:center;
+
+  animation:
+    openingIn 1.2s ease both;
+}
+
+.opening-small{
+  color:#b78397;
+
+  font-size:12px;
+
+  letter-spacing:4px;
+
+  text-transform:uppercase;
+
+  margin-bottom:18px;
+}
+
+.opening-title{
+  color:#4b3540;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(38px,9vw,68px);
+
+  font-weight:400;
+
+  line-height:1.1;
+
+  letter-spacing:-2px;
+}
+
+.opening-title span{
+  display:block;
+
+  color:var(--pink);
+
+  font-style:italic;
+}
+
+.opening-sub{
+  max-width:340px;
+
+  margin:20px auto 30px;
+
+  color:#8b737e;
+
+  font-size:14px;
+
+  line-height:1.8;
+}
+
+.open-button{
+  position:relative;
+
+  border:0;
+
+  padding:15px 28px;
+
+  border-radius:999px;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eb5a98,
+      #f38ab4
+    );
+
+  font-size:13px;
+  font-weight:800;
+
+  letter-spacing:.3px;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 15px 40px rgba(220,80,135,.28);
+
+  transition:.3s;
+
+  overflow:hidden;
+}
+
+.open-button::before{
+  content:"";
+
+  position:absolute;
+  top:0;
+  left:-100%;
+
+  width:60%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.5),
+      transparent
+    );
+
+  transform:skewX(-20deg);
+
+  animation:buttonShine 2.5s infinite;
+}
+
+.open-button:hover{
+  transform:
+    translateY(-4px)
+    scale(1.03);
+
+  box-shadow:
+    0 20px 50px rgba(220,80,135,.4);
+}
+
+@keyframes buttonShine{
+
+  0%{
+    left:-100%;
+  }
+
+  50%,100%{
+    left:150%;
+  }
+
+}
+
+@keyframes openingIn{
+
+  from{
+    opacity:0;
+    transform:
+      translateY(25px)
+      scale(.97);
+  }
+
+  to{
+    opacity:1;
+    transform:none;
+  }
+
+}
+
+/* =========================================================
+   FIREWORK CANVAS
+========================================================= */
+
+#fireworks{
+  position:fixed;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  z-index:100000;
+
+  pointer-events:none;
+}
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.heart{
+  position:fixed;
+
+  bottom:-40px;
+
+  z-index:4;
+
+  pointer-events:none;
+
+  animation:
+    heartFloat linear forwards;
+}
+
+@keyframes heartFloat{
+
+  to{
+    transform:
+      translateY(-115vh)
+      rotate(30deg);
+
+    opacity:0;
+  }
+
+}
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav{
+  position:fixed;
+
+  z-index:500;
+
+  top:14px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:min(96%,1100px);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:3px;
+
+  padding:8px;
+
+  border:
+    1px solid rgba(255,255,255,.85);
+
+  border-radius:999px;
+
+  background:
+    rgba(255,255,255,.72);
+
+  backdrop-filter:
+    blur(20px)
+    saturate(150%);
+
+  box-shadow:
+    0 15px 50px rgba(160,70,105,.12);
+
+  overflow-x:auto;
+
+  scrollbar-width:none;
+
+  animation:
+    navIn 1s .4s ease both;
+}
+
+.nav::-webkit-scrollbar{
+  display:none;
+}
+
+.nav a{
+  flex:none;
+
+  padding:9px 12px;
+
+  border-radius:999px;
+
+  font-size:12px;
+  font-weight:800;
+
+  color:#6d5963;
+
+  transition:.3s;
+}
+
+.nav a:hover{
+  color:var(--pink);
+
+  background:#ffe8f1;
+
+  transform:translateY(-2px);
+}
+
+.game-menu,
+.abel-menu{
+  color:white !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ed5b98,
+      #f58ab4
+    ) !important;
+
+  box-shadow:
+    0 7px 20px rgba(236,91,150,.25);
+}
+
+.game-menu{
+  animation:
+    softPulse 2s infinite;
+}
+
+@keyframes softPulse{
+
+  0%,100%{
+    box-shadow:
+      0 7px 20px rgba(236,91,150,.25);
+  }
+
+  50%{
+    box-shadow:
+      0 9px 28px rgba(236,91,150,.45);
+  }
+
+}
+
+@keyframes navIn{
+
+  from{
+    opacity:0;
+    transform:
+      translate(-50%,-20px);
+  }
+
+  to{
+    opacity:1;
+    transform:
+      translate(-50%,0);
+  }
+
+}
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music{
+  position:fixed;
+
+  right:17px;
+  bottom:17px;
+
+  z-index:600;
+
+  border:0;
+
+  padding:12px 17px;
+
+  border-radius:999px;
+
+  color:white;
+
+  background:
+    rgba(237,91,150,.92);
+
+  font-size:12px;
+  font-weight:800;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 12px 35px rgba(220,80,135,.3);
+
+  transition:.3s;
+}
+
+.music:hover{
+  transform:
+    translateY(-4px);
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.wrap{
+  position:relative;
+
+  z-index:2;
+
+  width:min(1050px,91%);
+
+  margin:auto;
+
+  padding:
+    135px 0
+    80px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  min-height:90vh;
+
+  display:flex;
+  align-items:center;
+}
+
+.hero-inner{
+  width:100%;
+}
+
+/* =========================================================
+   DECORATIONS
+========================================================= */
+
+.deco{
+  position:absolute;
+
+  pointer-events:none;
+
+  opacity:.65;
+
+  animation:
+    float 5s ease-in-out infinite;
+}
+
+.deco.one{
+  right:4%;
+  top:12%;
+
+  font-size:45px;
+}
+
+.deco.two{
+  right:18%;
+  top:42%;
+
+  font-size:25px;
+
+  animation-delay:1s;
+}
+
+.deco.three{
+  left:2%;
+  bottom:12%;
+
+  font-size:32px;
+
+  animation-delay:2s;
+}
+
+@keyframes float{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(-5deg);
+  }
+
+  50%{
+    transform:
+      translateY(-15px)
+      rotate(7deg);
+  }
+
+}
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.badge{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  padding:8px 13px;
+
+  border-radius:999px;
+
+  color:var(--pink);
+
+  background:
+    rgba(255,255,255,.7);
+
+  border:
+    1px solid var(--line);
+
+  font-size:11px;
+  font-weight:800;
+
+  letter-spacing:.3px;
+
+  animation:
+    fadeUp .8s ease both;
+}
+
+/* =========================================================
+   CHAPTER
+========================================================= */
+
+.chapter{
+  margin-top:22px;
+
+  color:#a17f8e;
+
+  font-size:11px;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  animation:
+    fadeUp .8s .1s ease both;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.title{
+  margin-top:15px;
+
+  max-width:720px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      54px,
+      10vw,
+      105px
+    );
+
+  line-height:.94;
+
+  letter-spacing:-5px;
+
+  font-weight:400;
+
+  color:#382c34;
+
+  animation:
+    titleIn 1s .15s ease both;
+}
+
+.title span{
+  color:var(--pink);
+
+  font-style:italic;
+
+  position:relative;
+}
+
+.title span::after{
+  content:"♡";
+
+  position:absolute;
+
+  top:-8px;
+  right:-35px;
+
+  color:#ee82aa;
+
+  font-size:25px;
+
+  animation:
+    heartBeat 1.5s infinite;
+}
+
+@keyframes titleIn{
+
+  from{
+    opacity:0;
+    transform:
+      translateY(25px);
+  }
+
+  to{
+    opacity:1;
+    transform:none;
+  }
+
+}
+
+@keyframes heartBeat{
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:
+      scale(1.25)
+      rotate(8deg);
+  }
+
+}
+
+/* =========================================================
+   LEAD
+========================================================= */
+
+.lead{
+  max-width:650px;
+
+  margin-top:24px;
+
+  color:var(--muted);
+
+  font-size:
+    clamp(
+      15px,
+      2.2vw,
+      19px
+    );
+
+  line-height:1.8;
+
+  font-weight:500;
+
+  animation:
+    fadeUp 1s .3s ease both;
+}
+
+.lead b{
+  color:var(--pink);
+  font-weight:750;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.buttons{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:9px;
+
+  margin-top:27px;
+
+  animation:
+    fadeUp 1s .4s ease both;
+}
+
+.btn{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:12px 17px;
+
+  border-radius:999px;
+
+  color:#705b66;
+
+  background:
+    rgba(255,255,255,.78);
+
+  border:
+    1px solid var(--line);
+
+  font-size:12px;
+  font-weight:800;
+
+  box-shadow:
+    0 10px 25px rgba(160,70,105,.06);
+
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:
+    translateY(-4px);
+
+  color:var(--pink);
+
+  background:white;
+
+  box-shadow:
+    0 15px 35px rgba(160,70,105,.13);
+}
+
+.btn.primary{
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eb5a98,
+      #f28ab4
+    );
+
+  border-color:#eb5a98;
+
+  box-shadow:
+    0 12px 30px rgba(235,90,152,.28);
+}
+
+/* =========================================================
+   GAME CARD
+========================================================= */
+
+.game-big{
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+  width:min(650px,100%);
+
+  margin-top:22px;
+
+  padding:18px 20px;
+
+  border-radius:24px;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e95a97,
+      #f37eac,
+      #f6a5c5
+    );
+
+  box-shadow:
+    0 18px 45px rgba(220,80,135,.25);
+
+  overflow:hidden;
+
+  transition:.35s;
+
+  animation:
+    fadeUp 1s .5s ease both;
+}
+
+.game-big:hover{
+  transform:
+    translateY(-6px)
+    scale(1.01);
+
+  box-shadow:
+    0 25px 55px rgba(220,80,135,.35);
+}
+
+.game-icon{
+  display:grid;
+
+  place-items:center;
+
+  flex:none;
+
+  width:52px;
+  height:52px;
+
+  border-radius:17px;
+
+  background:
+    rgba(255,255,255,.2);
+
+  font-size:27px;
+}
+
+.game-text{
+  display:flex;
+
+  flex-direction:column;
+}
+
+.game-text strong{
+  font-size:15px;
+}
+
+.game-text small{
+  margin-top:4px;
+
+  font-size:11px;
+
+  line-height:1.5;
+
+  opacity:.9;
+}
+
+/* =========================================================
+   ABEL CARD
+========================================================= */
+
+.abel-card{
+  position:relative;
+
+  display:block;
+
+  width:min(760px,100%);
+
+  margin-top:22px;
+
+  padding:25px;
+
+  border-radius:28px;
+
+  background:
+    rgba(255,255,255,.72);
+
+  border:
+    1px solid #f4d6e2;
+
+  box-shadow:
+    0 20px 60px rgba(160,70,105,.08);
+
+  overflow:hidden;
+
+  transition:.35s;
+
+  animation:
+    fadeUp 1s .6s ease both;
+}
+
+.abel-card:hover{
+  transform:
+    translateY(-6px);
+
+  background:
+    rgba(255,255,255,.9);
+
+  box-shadow:
+    0 25px 70px rgba(160,70,105,.15);
+}
+
+.abel-card::after{
+  content:"♡";
+
+  position:absolute;
+
+  right:25px;
+  top:5px;
+
+  color:#f18ab0;
+
+  font-size:90px;
+
+  opacity:.07;
+}
+
+.abel-top{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  position:relative;
+  z-index:2;
+}
+
+.abel-icon{
+  display:grid;
+
+  place-items:center;
+
+  width:43px;
+  height:43px;
+
+  flex:none;
+
+  border-radius:15px;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eb5a98,
+      #f49ac0
+    );
+
+  box-shadow:
+    0 10px 25px rgba(235,90,152,.2);
+}
+
+.abel-card h2{
+  color:#59404b;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:19px;
+
+  font-weight:500;
+}
+
+.abel-card p{
+  position:relative;
+  z-index:2;
+
+  margin-top:13px;
+
+  max-width:650px;
+
+  color:#7c6872;
+
+  font-size:13px;
+
+  line-height:1.85;
+}
+
+.abel-open{
+  position:relative;
+  z-index:2;
+
+  display:inline-flex;
+
+  margin-top:15px;
+
+  padding:9px 14px;
+
+  border-radius:999px;
+
+  color:white;
+
+  background:
+    #ed659d;
+
+  font-size:11px;
+
+  font-weight:800;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:12px;
+
+  max-width:760px;
+
+  margin-top:22px;
+
+  animation:
+    fadeUp 1s .7s ease both;
+}
+
+.stat{
+  padding:17px;
+
+  text-align:center;
+
+  border-radius:22px;
+
+  background:
+    rgba(255,255,255,.6);
+
+  border:
+    1px solid rgba(255,255,255,.9);
+
+  transition:.3s;
+}
+
+.stat:hover{
+  transform:
+    translateY(-5px);
+
+  background:white;
+}
+
+.stat-icon{
+  font-size:20px;
+}
+
+.stat strong{
+  display:block;
+
+  margin-top:5px;
+
+  color:var(--pink);
+
+  font-size:18px;
+}
+
+.stat span{
+  color:#927782;
+
+  font-size:10px;
+
+  font-weight:700;
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote{
+  max-width:760px;
+
+  margin-top:22px;
+
+  padding:22px 25px;
+
+  border-radius:24px;
+
+  background:
+    rgba(255,255,255,.55);
+
+  border:
+    1px solid rgba(255,255,255,.9);
+
+  color:#806c76;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:14px;
+
+  line-height:1.9;
+
+  animation:
+    fadeUp 1s .75s ease both;
+}
+
+.quote b{
+  color:var(--pink);
+}
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.note{
+  max-width:760px;
+
+  margin-top:15px;
+
+  padding:20px 23px;
+
+  border-radius:22px;
+
+  color:#87737d;
+
+  background:
+    rgba(255,255,255,.5);
+
+  border:
+    1px solid rgba(255,255,255,.9);
+
+  font-size:12px;
+
+  line-height:1.8;
+
+  animation:
+    fadeUp 1s .8s ease both;
+}
+
+.note b{
+  color:var(--pink);
+}
+
+.tiny{
+  color:#a48994;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+  margin-top:45px;
+
+  padding:28px 20px;
+
+  text-align:center;
+
+  border-radius:26px;
+
+  background:
+    rgba(255,255,255,.55);
+
+  border:
+    1px solid rgba(255,255,255,.9);
+
+  animation:
+    fadeUp 1s .9s ease both;
+}
+
+.footer-heart{
+  font-size:24px;
+
+  animation:
+    heartBeat 1.5s infinite;
+}
+
+.footer p{
+  margin-top:7px;
+
+  color:#8b747f;
+
+  font-size:11px;
+
+  line-height:1.7;
+}
+
+.footer b{
+  color:var(--pink);
+}
+
+/* =========================================================
+   FADE
+========================================================= */
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:
+      translateY(18px);
+  }
+
+  to{
+    opacity:1;
+    transform:
+      translateY(0);
+  }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+  .nav{
+    width:96%;
+
+    justify-content:flex-start;
+  }
+
+  .nav a{
+    font-size:10px;
+
+    padding:8px 10px;
+  }
+
+  .wrap{
+    width:90%;
+
+    padding-top:120px;
+  }
+
+  .title{
+    font-size:
+      clamp(
+        51px,
+        16vw,
+        78px
+      );
+
+    letter-spacing:-3px;
+  }
+
+  .title span::after{
+    right:-25px;
+
+    font-size:18px;
+  }
+
+  .lead{
+    font-size:14px;
+
+    line-height:1.8;
+  }
+
+  .buttons{
+    gap:7px;
+  }
+
+  .btn{
+    padding:10px 13px;
+
+    font-size:10px;
+  }
+
+  .game-big{
+    padding:16px;
+
+    border-radius:21px;
+  }
+
+  .game-icon{
+    width:46px;
+    height:46px;
+
+    font-size:23px;
+  }
+
+  .game-text strong{
+    font-size:13px;
+  }
+
+  .game-text small{
+    font-size:9px;
+  }
+
+  .abel-card{
+    padding:20px;
+
+    border-radius:24px;
+  }
+
+  .abel-card h2{
+    font-size:16px;
+  }
+
+  .abel-card p{
+    font-size:11px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+
+    gap:8px;
+  }
+
+  .stat{
+    padding:14px;
+  }
+
+  .deco.one{
+    font-size:30px;
+
+    right:0;
+  }
+
+  .deco.two{
+    font-size:20px;
+  }
+
+  .deco.three{
+    font-size:23px;
+  }
+
+  .music{
+    right:10px;
+    bottom:10px;
+
+    padding:10px 13px;
+
+    font-size:10px;
+  }
+
+}
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media(max-width:400px){
+
+  .opening-title{
+    font-size:40px;
+  }
+
+  .title{
+    font-size:50px;
+  }
+
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+
+    animation-duration:.01ms !important;
+
+    animation-iteration-count:1 !important;
+
+    scroll-behavior:auto !important;
+
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     AMBIENT BACKGROUND
+====================================================== -->
+
+<div class="ambient one"></div>
+<div class="ambient two"></div>
+
+<!-- ======================================================
+     FIREWORK CANVAS
+====================================================== -->
+
+<canvas id="fireworks"></canvas>
+
+<!-- ======================================================
+     OPENING SURPRISE
+====================================================== -->
+
+<div class="opening" id="opening">
+
+  <div class="opening-content">
+
+    <div class="opening-small">
+      a little surprise
+    </div>
+
+    <h1 class="opening-title">
+
+      this little place
+      <span>is for you, abel</span>
+
+    </h1>
+
+    <p class="opening-sub">
+
+      ngga ada yang terlalu besar di sini,
+      cuma kumpulan hal kecil yang dibuat
+      karna ada abel 🫶🏻🩷
+
+    </p>
+
+    <button
+      class="open-button"
+      id="openButton"
+    >
+      buka untuk abel ♡
+    </button>
+
+  </div>
+
+</div>
+
+<!-- ======================================================
+     NAVBAR
+====================================================== -->
+
+<nav class="nav">
+
+  <a href="index.html">
+    🏠 home
+  </a>
+
+  <a href="cerita.html">
+    📖 cerita
+  </a>
+
+  <a href="galeri.html">
+    📸 foto
+  </a>
+
+  <a href="timeline.html">
+    🕰️ timeline
+  </a>
+
+  <a href="reasons.html">
+    💗 alasan
+  </a>
+
+  <a
+    href="game.html"
+    class="game-menu"
+  >
+    🎮 game
+  </a>
+
+  <a href="surprise.html">
+    🎁 surprise
+  </a>
+
+  <a href="surat.html">
+    💌 surat
+  </a>
+
+  <a
+    href="untukabeln.html"
+    class="abel-menu"
+  >
+    💗 special untuk abel 
+  </a>
+
+</nav>
+
+<!-- ======================================================
+     MUSIC
+====================================================== -->
+
+<audio
+  id="loveMusic"
+  loop
+  preload="auto"
+  src="I_Lay_My_Love_On_You.mp3">
+</audio>
+
+<button
+  class="music"
+  id="musicBtn"
+>
+  🎵 putar lagu
+</button>
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="wrap">
+
+<section class="hero">
+
+  <div class="deco one">
+    ♡
+  </div>
+
+  <div class="deco two">
+    ✦
+  </div>
+
+  <div class="deco three">
+    ♡
+  </div>
+
+  <div class="hero-inner">
+
+    <div class="badge">
+      💌 made quietly with love
+    </div>
+
+    <div class="chapter">
+      chapter 01 · little moments
+    </div>
+
+    <h1 class="title">
+
+      little<br>
+
+      <span>moments</span>
+
+      <br>
+
+      abel
+
+    </h1>
+
+    <p class="lead">
+
+      sebuah tempat kecil untuk menyimpan
+      cerita <b>iky &amp; abel</b>,
+
+      dari hal-hal random,
+      tawa kecil,
+
+      sampai momen sederhana
+      yang ternyata jadi berarti 🩷
+
+    </p>
+
+    <!-- ==================================================
+         BUTTONS
+    ================================================== -->
+
+    <div class="buttons">
+
+      <a
+        class="btn primary"
+        href="cerita.html"
+      >
+        ♡ cerita kita
+      </a>
+
+      <a
+        class="btn"
+        href="galeri.html"
+      >
+        📸 foto
+      </a>
+
+      <a
+        class="btn"
+        href="timeline.html"
+      >
+        🕰️ timeline
+      </a>
+
+      <a
+        class="btn"
+        href="reasons.html"
+      >
+        💗 alasan
+      </a>
+
+      <a
+        class="btn"
+        href="surprise.html"
+      >
+        🎁 surprise
+      </a>
+
+    </div>
+
+    <!-- ==================================================
+         GAME
+    ================================================== -->
+
+    <a
+      href="game.html"
+      class="game-big"
+    >
+
+      <div class="game-icon">
+        🎮
+      </div>
+
+      <div class="game-text">
+
+        <strong>
+          PLAY WITH US ♡
+        </strong>
+
+        <small>
+          20+ game · UNO · ular · balap love ·
+          flappy heart · tebak foto &amp; lainnya
+        </small>
+
+      </div>
+
+      <div>
+        ♡
+      </div>
+
+    </a>
+
+    <!-- ==================================================
+         ABEL
+    ================================================== -->
+
+    <a
+      href="untukabeln.html"
+      class="abel-card"
+    >
+
+      <div class="abel-top">
+
+        <div class="abel-icon">
+          💌
+        </div>
+
+        <h2>
+          halaman yang cuma buat abel
+        </h2>
+
+      </div>
+
+      <p>
+
+        kalo halaman lain menyimpan
+        cerita dan kenangan,
+
+        halaman ini dibuat sedikit berbeda,
+
+        karna ada beberapa hal yang
+        pengen iky sampaikan ke abel
+        dengan cara yang sederhana
+
+        ngga perlu buru-buru dibaca,
+        cukup pelan-pelan 🩷
+
+      </p>
+
+      <div class="abel-open">
+        buka halaman khusus abel →
+      </div>
+
+    </a>
+
+    <!-- ==================================================
+         STATS
+    ================================================== -->
+
+    <div class="stats">
+
+      <div class="stat">
+
+        <div class="stat-icon">
+          📸
+        </div>
+
+        <strong>
+          25+
+        </strong>
+
+        <span>
+          little memories
+        </span>
+
+      </div>
+
+      <div class="stat">
+
+        <div class="stat-icon">
+          🎮
+        </div>
+
+        <strong>
+          20+
+        </strong>
+
+        <span>
+          games
+        </span>
+
+      </div>
+
+      <div class="stat">
+
+        <div class="stat-icon">
+          ♡
+        </div>
+
+        <strong>
+          1
+        </strong>
+
+        <span>
+          special person
+        </span>
+
+      </div>
+
+    </div>
+
+    <!-- ==================================================
+         QUOTE
+    ================================================== -->
+
+    <div class="quote">
+
+      kadang sesuatu ngga perlu
+      dibuat terlalu besar supaya
+      terasa spesial,
+
+      karna bisa jadi yang paling
+      kita ingat justru
+
+      <b>
+        momen kecil yang terjadi
+        bersama orang yang tepat
+      </b>
+
+    </div>
+
+    <!-- ==================================================
+         NOTE
+    ================================================== -->
+
+    <div class="note">
+
+      <b>little spoiler:</b>
+
+      awalnya cuma kenal ngga sengaja
+      di Telegram,
+
+      lalu entah bagaimana ceritanya,
+      sekarang malah ada website kecil
+      yang isinya tentang kita 😭
+
+      <br><br>
+
+      <span class="tiny">
+
+        jadi jangan berhenti di halaman ini,
+        masi banya cerita kecil
+        yang disimpan di setiap menu 💌
+
+      </span>
+
+    </div>
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <div class="footer">
+
+      <div class="footer-heart">
+        ♡
+      </div>
+
+      <p>
+
+        made with a little code,
+        many memories,
+        and one special person
+
+        <br>
+
+        <b>
+          iky ♡ abel
+        </b>
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<script>
+
+/* =========================================================
+   OPENING + FIREWORKS
+========================================================= */
+
+const opening =
+  document.getElementById("opening");
+
+const openButton =
+  document.getElementById("openButton");
+
+const canvas =
+  document.getElementById("fireworks");
+
+const ctx =
+  canvas.getContext("2d");
+
+let particles=[];
+
+function resizeCanvas(){
+
+  canvas.width =
+    window.innerWidth;
+
+  canvas.height =
+    window.innerHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener(
+  "resize",
+  resizeCanvas
+);
+
+
+/* =========================================================
+   FIREWORK PARTICLE
+========================================================= */
+
+function createFirework(
+  x,
+  y
+){
+
+  const symbols=[
+    "♡",
+    "✦",
+    "✧",
+    "♥"
+  ];
+
+  for(
+    let i=0;
+    i<42;
+    i++
+  ){
+
+    const angle =
+      Math.random() *
+      Math.PI * 2;
+
+    const speed =
+      2 +
+      Math.random()*5;
+
+    particles.push({
+
+      x:x,
+      y:y,
+
+      vx:
+        Math.cos(angle)
+        * speed,
+
+      vy:
+        Math.sin(angle)
+        * speed,
+
+      life:
+        70 +
+        Math.random()*35,
+
+      maxLife:
+        100,
+
+      size:
+        8 +
+        Math.random()*9,
+
+      symbol:
+        symbols[
+          Math.floor(
+            Math.random()*
+            symbols.length
+          )
+        ],
+
+      rotation:
+        Math.random()*Math.PI,
+
+      spin:
+        (Math.random()-.5)*.12
+
+    });
+
+  }
+
+}
+
+
+/* =========================================================
+   FIREWORK ANIMATION
+========================================================= */
+
+function animateFireworks(){
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  particles =
+    particles.filter(
+      p => p.life > 0
+    );
+
+  particles.forEach(
+    p => {
+
+      p.x += p.vx;
+
+      p.y += p.vy;
+
+      p.vx *= .97;
+
+      p.vy *= .97;
+
+      p.vy += .035;
+
+      p.life--;
+
+      p.rotation += p.spin;
+
+      const alpha =
+        p.life /
+        p.maxLife;
+
+      ctx.save();
+
+      ctx.globalAlpha =
+        Math.max(
+          0,
+          alpha
+        );
+
+      ctx.translate(
+        p.x,
+        p.y
+      );
+
+      ctx.rotate(
+        p.rotation
+      );
+
+      ctx.font =
+        `${p.size}px serif`;
+
+      ctx.fillStyle =
+        "#f06a9f";
+
+      ctx.fillText(
+        p.symbol,
+        0,
+        0
+      );
+
+      ctx.restore();
+
+    }
+  );
+
+  requestAnimationFrame(
+    animateFireworks
+  );
+
+}
+
+animateFireworks();
+
+
+/* =========================================================
+   OPEN BUTTON
+========================================================= */
+
+openButton.addEventListener(
+  "click",
+  function(){
+
+    opening.classList.add(
+      "hide"
+    );
+
+    /* fireworks */
+
+    setTimeout(
+      function(){
+
+        const positions=[
+          [window.innerWidth*.25,
+           window.innerHeight*.3],
+
+          [window.innerWidth*.75,
+           window.innerHeight*.28],
+
+          [window.innerWidth*.5,
+           window.innerHeight*.18],
+
+          [window.innerWidth*.35,
+           window.innerHeight*.55],
+
+          [window.innerWidth*.68,
+           window.innerHeight*.52]
+        ];
+
+        positions.forEach(
+          (pos,index)=>{
+
+            setTimeout(
+              ()=>{
+
+                createFirework(
+                  pos[0],
+                  pos[1]
+                );
+
+              },
+              index*230
+            );
+
+          }
+        );
+
+      },
+      200
+    );
+
+    /* hearts */
+
+    for(
+      let i=0;
+      i<25;
+      i++
+    ){
+
+      setTimeout(
+        createFloatingHeart,
+        i*90
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   FLOATING HEART
+========================================================= */
+
+const heartTypes=[
+  "♡",
+  "♥",
+  "💗",
+  "🩷",
+  "✨"
+];
+
+function createFloatingHeart(){
+
+  const h =
+    document.createElement(
+      "div"
+    );
+
+  h.className =
+    "heart";
+
+  h.textContent =
+    heartTypes[
+      Math.floor(
+        Math.random()*
+        heartTypes.length
+      )
+    ];
+
+  h.style.left =
+    Math.random()*100+
+    "vw";
+
+  h.style.fontSize =
+    (12+
+     Math.random()*22)+
+    "px";
+
+  h.style.color =
+    "#ef6c9f";
+
+  h.style.animationDuration =
+    (5+
+     Math.random()*5)+
+    "s";
+
+  document.body.appendChild(
+    h
+  );
+
+  setTimeout(
+    ()=>{
+      h.remove();
+    },
+    11000
+  );
+
+}
+
+
+/* =========================================================
+   BACKGROUND HEART LOOP
+========================================================= */
+
+setInterval(
+  function(){
+
+    createFloatingHeart();
+
+  },
+  1000
+);
+
+
+/* =========================================================
+   CLICK HEART
+========================================================= */
+
+document.addEventListener(
+  "click",
+  function(e){
+
+    if(
+      e.target.closest(".nav") ||
+      e.target.closest(".music") ||
+      e.target.closest(".open-button")
+    ){
+
+      return;
+
+    }
+
+    for(
+      let i=0;
+      i<3;
+      i++
+    ){
+
+      const h =
+        document.createElement(
+          "div"
+        );
+
+      h.className =
+        "heart";
+
+      h.textContent =
+        i===0
+        ? "♡"
+        : "✦";
+
+      h.style.left =
+        (
+          e.clientX +
+          (Math.random()-.5)*30
+        )+"px";
+
+      h.style.bottom =
+        (
+          window.innerHeight -
+          e.clientY
+        )+"px";
+
+      h.style.fontSize =
+        "18px";
+
+      h.style.animationDuration =
+        "3s";
+
+      document.body.appendChild(
+        h
+      );
+
+      setTimeout(
+        ()=>{
+          h.remove();
+        },
+        3500
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const audio =
+  document.getElementById(
+    "loveMusic"
+  );
+
+const musicBtn =
+  document.getElementById(
+    "musicBtn"
+  );
+
+let playing=false;
+
+musicBtn.addEventListener(
+  "click",
+  async function(){
+
+    try{
+
+      if(!playing){
+
+        await audio.play();
+
+        playing=true;
+
+        musicBtn.textContent =
+          "⏸️ matikan lagu";
+
+      }else{
+
+        audio.pause();
+
+        playing=false;
+
+        musicBtn.textContent =
+          "🎵 putar lagu";
+
+      }
+
+    }catch(error){
+
+      alert(
+        'lagu belum terbaca 😭 pastikan file "I_Lay_My_Love_On_You.mp3" ada di repository utama'
+      );
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
