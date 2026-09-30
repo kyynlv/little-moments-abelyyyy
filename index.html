@@ -5491,7 +5491,7 @@ many memories.
 <!-- =====================================================
      MEMORY INTRO
 ====================================================== -->
-
+   
 <section class="memory-intro">
 
     <div class="section-container">
@@ -5513,7 +5513,389 @@ many memories.
 
 </section>
 
+<!-- =========================================================
+     BAGIAN 4 — FINAL / PENUTUP UNTUK ABEL
+========================================================= -->
 
+<style>
+/* ---------- FINAL SECTION ---------- */
+
+.final-abel-section{
+    position:relative;
+    min-height:100vh;
+    padding:90px 22px 110px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,182,210,.25), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(170,220,255,.22), transparent 30%),
+        linear-gradient(180deg,#fff7fb 0%,#f5faff 100%);
+}
+
+.final-abel-bg-heart{
+    position:absolute;
+    font-size:25px;
+    opacity:.25;
+    animation:finalFloat 6s ease-in-out infinite;
+    pointer-events:none;
+}
+
+.final-abel-bg-heart:nth-child(1){
+    left:8%;
+    top:15%;
+    animation-delay:0s;
+}
+
+.final-abel-bg-heart:nth-child(2){
+    right:10%;
+    top:25%;
+    animation-delay:1.5s;
+}
+
+.final-abel-bg-heart:nth-child(3){
+    left:15%;
+    bottom:20%;
+    animation-delay:3s;
+}
+
+.final-abel-bg-heart:nth-child(4){
+    right:15%;
+    bottom:12%;
+    animation-delay:4.5s;
+}
+
+@keyframes finalFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+    50%{
+        transform:translateY(-25px) rotate(8deg);
+    }
+}
+
+.final-abel-card{
+    position:relative;
+    z-index:2;
+    width:min(100%,520px);
+    padding:38px 25px;
+    text-align:center;
+    border-radius:32px;
+    background:rgba(255,255,255,.78);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:
+        0 25px 70px rgba(150,130,160,.18),
+        inset 0 1px 0 rgba(255,255,255,.9);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+}
+
+.final-abel-small{
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#9b91a5;
+    margin-bottom:14px;
+}
+
+.final-abel-title{
+    margin:0;
+    font-size:clamp(32px,9vw,55px);
+    line-height:1.05;
+    color:#55505d;
+    font-weight:800;
+}
+
+.final-abel-title span{
+    color:#ed8fb4;
+}
+
+.final-abel-subtitle{
+    margin:18px auto 0;
+    max-width:400px;
+    color:#77727e;
+    font-size:15px;
+    line-height:1.8;
+}
+
+.final-abel-divider{
+    width:70px;
+    height:3px;
+    margin:25px auto;
+    border-radius:99px;
+    background:linear-gradient(90deg,#f4a6c4,#a9d9f5);
+}
+
+.final-abel-message{
+    display:none;
+    margin-top:25px;
+    padding:24px 20px;
+    border-radius:24px;
+    background:linear-gradient(
+        135deg,
+        rgba(255,225,237,.7),
+        rgba(220,242,255,.7)
+    );
+    color:#615b68;
+    line-height:1.9;
+    font-size:15px;
+    animation:finalMessageIn .8s ease forwards;
+}
+
+.final-abel-message.show{
+    display:block;
+}
+
+@keyframes finalMessageIn{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.final-abel-button{
+    margin-top:25px;
+    border:0;
+    padding:14px 24px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:700;
+    color:white;
+    background:linear-gradient(135deg,#ee9fbd,#91cdeb);
+    box-shadow:0 10px 25px rgba(220,150,190,.25);
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.final-abel-button:active{
+    transform:scale(.94);
+}
+
+.final-abel-sign{
+    margin-top:30px;
+    color:#77727e;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.final-abel-sign strong{
+    display:block;
+    margin-top:5px;
+    color:#e38cad;
+    font-size:18px;
+}
+
+.final-abel-heart{
+    display:inline-block;
+    margin-top:18px;
+    font-size:30px;
+    animation:finalHeartBeat 1.5s infinite;
+}
+
+@keyframes finalHeartBeat{
+    0%,100%{
+        transform:scale(1);
+    }
+    15%{
+        transform:scale(1.18);
+    }
+    30%{
+        transform:scale(1);
+    }
+    45%{
+        transform:scale(1.12);
+    }
+}
+
+.final-abel-particle{
+    position:fixed;
+    z-index:9999;
+    pointer-events:none;
+    font-size:18px;
+    animation:finalParticle 1.8s ease-out forwards;
+}
+
+@keyframes finalParticle{
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(.7) rotate(0deg);
+    }
+    100%{
+        opacity:0;
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(1.4)
+            rotate(30deg);
+    }
+}
+
+.final-abel-footer{
+    margin-top:30px;
+    font-size:11px;
+    color:#aaa4ae;
+    letter-spacing:1px;
+}
+</style>
+
+
+<section class="final-abel-section">
+
+    <div class="final-abel-bg-heart">♡</div>
+    <div class="final-abel-bg-heart">♡</div>
+    <div class="final-abel-bg-heart">♡</div>
+    <div class="final-abel-bg-heart">♡</div>
+
+    <div class="final-abel-card">
+
+        <div class="final-abel-small">
+            little moments with
+        </div>
+
+        <h2 class="final-abel-title">
+            Abel <span>♡</span>
+        </h2>
+
+        <p class="final-abel-subtitle">
+            kalau nanti halaman ini selesai,
+            semoga kamu tetap ingat kalau ada seseorang
+            yang senang banget bisa mengenal kamu
+        </p>
+
+        <div class="final-abel-divider"></div>
+
+        <button
+            class="final-abel-button"
+            id="finalAbelButton"
+            onclick="openFinalAbelMessage()">
+            buka pesan terakhir ♡
+        </button>
+
+        <div
+            class="final-abel-message"
+            id="finalAbelMessage">
+
+            makasih ya sayanggg, sudah hadir dan menjadi
+            salah satu bagian paling manis dari hari-hari aku 🤍
+
+            <br><br>
+
+            mungkin aku belum selalu bisa menjadi seseorang
+            yang sempurna, tapi aku akan terus belajar
+            buat ngerti kamu, menghargai kamu,
+            dan menjaga hal-hal kecil yang berarti buat kita
+
+            <br><br>
+
+            semoga sesibuk apapun hari kita nanti,
+            kita tetap punya alasan buat saling cerita,
+            saling ketawa, dan saling mengingat
+            kalau kita pernah punya banyak momen kecil
+            yang berarti
+
+            <br><br>
+
+            dan kalau suatu hari kamu buka website ini lagi,
+            aku cuma mau kamu ingat satu hal...
+
+            <br><br>
+
+            <strong>
+                kamu pernah menjadi seseorang
+                yang membuat hari-hari terasa lebih indah 🤍
+            </strong>
+
+        </div>
+
+        <div class="final-abel-sign">
+            dibuat dengan banyak hal kecil yang berarti
+            <strong>abel sayang iky ♡</strong>
+        </div>
+
+        <div class="final-abel-heart">
+            🤍
+        </div>
+
+        <div class="final-abel-footer">
+            end of little moments
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+function openFinalAbelMessage(){
+
+    const message = document.getElementById("finalAbelMessage");
+    const button = document.getElementById("finalAbelButton");
+
+    if(message.classList.contains("show")){
+        return;
+    }
+
+    message.classList.add("show");
+
+    button.innerHTML = "♡ untuk abel ♡";
+
+    createFinalAbelParticles();
+
+    setTimeout(() => {
+        message.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+    },200);
+}
+
+
+function createFinalAbelParticles(){
+
+    const symbols = ["♡","🤍","✦","˚","♡","✧"];
+
+    for(let i = 0; i < 22; i++){
+
+        const particle = document.createElement("div");
+
+        particle.className = "final-abel-particle";
+
+        particle.innerHTML =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        particle.style.left =
+            (50 + (Math.random() * 30 - 15)) + "vw";
+
+        particle.style.top =
+            (55 + (Math.random() * 15 - 7)) + "vh";
+
+        particle.style.setProperty(
+            "--x",
+            (Math.random() * 300 - 150) + "px"
+        );
+
+        particle.style.setProperty(
+            "--y",
+            (-Math.random() * 350 - 80) + "px"
+        );
+
+        particle.style.animationDelay =
+            (Math.random() * .35) + "s";
+
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+            particle.remove();
+        },2200);
+    }
+}
+</script>
 <!-- =====================================================
      MEMORIES
 ====================================================== -->
