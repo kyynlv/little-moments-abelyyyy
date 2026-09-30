@@ -3,92 +3,1937 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>little moments abel ♡</title>
+<meta name="theme-color" content="#f58bb5">
+
+<title>little moments — iky ♡ abel</title>
+
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;color:#513d4b;background:linear-gradient(160deg,#fff7fb,#ffe6f1 50%,#e7f5ff);overflow-x:hidden}
-a{text-decoration:none}.wrap{max-width:760px;margin:auto;padding:0 16px 90px}
-.hero{text-align:center;padding:58px 10px 30px}.mini{font-size:12px;letter-spacing:2px;color:#a56d8b;text-transform:uppercase}
-h1{font-size:clamp(42px,12vw,72px);margin:12px 0;color:#e78db3}.hero p{line-height:1.7;color:#745d69}
-.nav{position:sticky;top:10px;z-index:20;display:flex;gap:7px;overflow:auto;padding:8px;background:#ffffffc9;backdrop-filter:blur(12px);border-radius:22px}
-.nav button{border:0;background:#fff5fa;color:#9a6380;padding:10px 14px;border-radius:16px;white-space:nowrap;font-weight:700}
-.nav button.active{background:#f7a9c8;color:white}
-.card{background:#ffffffcf;border:1px solid #fff;border-radius:28px;padding:22px;margin-top:18px;box-shadow:0 14px 45px #b983a522}
-.section-title{text-align:center;color:#d878a4;margin:5px 0 8px}.section-sub{text-align:center;line-height:1.6;color:#826d78}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.frame{position:relative;background:#fff;padding:8px 8px 35px;border-radius:8px;box-shadow:0 9px 22px #5c3c4c22;transform:rotate(-1.5deg);transition:.25s}
-.frame:nth-child(even){transform:rotate(1.5deg)}.frame:hover{transform:translateY(-5px) rotate(0)}
-.frame img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;border-radius:4px;cursor:pointer}
-.caption{position:absolute;bottom:9px;left:8px;right:8px;text-align:center;font-size:11px;color:#8b6878;font-weight:700}
-.tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:62px;height:19px;background:#cfeeffc9;z-index:2}
-.frame:nth-child(even) .tape{background:#ffc9dfc9}
-.story p,.note p{line-height:1.85}.highlight{background:linear-gradient(135deg,#ffe2ee,#e4f4ff);border-radius:20px;padding:17px;text-align:center;font-weight:700;color:#9a6380}
-.memory{display:grid;grid-template-columns:52px 1fr;gap:13px;margin:15px 0}.icon{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#ffc2dc,#cfeeff);font-size:24px}
-.memory h3{margin:3px 0 6px;color:#9d6280}.memory p{margin:0;line-height:1.65}
-.music{position:fixed;right:16px;bottom:16px;z-index:30;border:0;border-radius:999px;padding:13px 17px;background:#f59fc2;color:#fff;font-weight:800;box-shadow:0 8px 24px #9b567644}
-.footer{text-align:center;padding:30px 10px;color:#987987;font-size:13px;line-height:1.7}
-#lightbox{display:none;position:fixed;inset:0;z-index:50;background:#20151dcc;align-items:center;justify-content:center;padding:18px}
-#lightbox.show{display:flex}#lightbox img{max-width:94vw;max-height:88vh;border-radius:16px}.close{position:fixed;right:16px;top:10px;color:white;background:0;border:0;font-size:32px}
-@media(max-width:520px){.card{padding:18px}.gallery{gap:11px}}
+:root{
+  --pink:#ed5b96;
+  --pink2:#f79ac0;
+  --blue:#a9dfff;
+  --blue2:#dff5ff;
+  --cream:#fff9fc;
+  --ink:#342934;
+  --muted:#806c77;
+  --white:#fff;
+  --line:#f5d6e3;
+  --shadow:0 20px 60px rgba(160,70,105,.12);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  background:
+    radial-gradient(circle at 10% 5%,#fff 0,transparent 28%),
+    radial-gradient(circle at 90% 15%,rgba(169,223,255,.35),transparent 30%),
+    radial-gradient(circle at 30% 80%,rgba(255,184,215,.32),transparent 30%),
+    linear-gradient(135deg,#fff9fc,#ffeaf3 48%,#eefaff);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.25;
+  background-image:
+    radial-gradient(rgba(237,91,150,.3) 1px,transparent 1px);
+  background-size:45px 45px;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font-family:inherit;
+}
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.glow{
+  position:fixed;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(25px);
+  opacity:.6;
+  z-index:0;
+  animation:glowMove 10s ease-in-out infinite;
+}
+
+.glow.one{
+  left:-170px;
+  top:18%;
+  background:rgba(255,125,174,.2);
+}
+
+.glow.two{
+  right:-170px;
+  bottom:10%;
+  background:rgba(125,205,255,.2);
+  animation-delay:3s;
+}
+
+@keyframes glowMove{
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+  50%{
+    transform:translate(35px,-25px) scale(1.15);
+  }
+}
+
+/* =========================
+   OPENING
+========================= */
+
+.opening{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+  background:
+    radial-gradient(circle at center,#fff8fc 0,#ffe6f1 45%,#dff5ff 100%);
+
+  transition:
+    opacity .9s ease,
+    visibility .9s ease;
+}
+
+.opening.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.opening-inner{
+  width:min(90%,520px);
+  animation:openingIn 1.1s ease both;
+}
+
+.opening-small{
+  font-size:11px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#a57d8e;
+  margin-bottom:18px;
+}
+
+.opening h1{
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:clamp(42px,10vw,75px);
+  line-height:1;
+  letter-spacing:-3px;
+}
+
+.opening h1 span{
+  display:block;
+  color:var(--pink);
+  font-style:italic;
+}
+
+.opening p{
+  max-width:360px;
+  margin:22px auto 30px;
+  color:#846f7b;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.open-btn{
+  position:relative;
+  overflow:hidden;
+  border:0;
+  border-radius:999px;
+  padding:15px 28px;
+  color:white;
+  font-weight:800;
+  cursor:pointer;
+
+  background:linear-gradient(
+    135deg,
+    var(--pink),
+    #f58db7
+  );
+
+  box-shadow:
+    0 15px 40px rgba(237,91,150,.3);
+
+  transition:.3s;
+}
+
+.open-btn:hover{
+  transform:translateY(-4px) scale(1.03);
+}
+
+.open-btn::after{
+  content:"";
+  position:absolute;
+  width:60%;
+  height:100%;
+  left:-100%;
+  top:0;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.6),
+    transparent
+  );
+  transform:skewX(-20deg);
+  animation:shine 2.5s infinite;
+}
+
+@keyframes shine{
+  0%{left:-100%}
+  50%,100%{left:150%}
+}
+
+@keyframes openingIn{
+  from{
+    opacity:0;
+    transform:translateY(25px) scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* =========================
+   NAV
+========================= */
+
+.nav{
+  position:fixed;
+  top:13px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:500;
+
+  width:min(96%,1050px);
+  display:flex;
+  justify-content:flex-start;
+  gap:5px;
+
+  padding:8px;
+  overflow-x:auto;
+
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:999px;
+
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+    0 15px 50px rgba(120,80,100,.12);
+
+  scrollbar-width:none;
+}
+
+.nav::-webkit-scrollbar{
+  display:none;
+}
+
+.nav a{
+  flex:none;
+  padding:9px 12px;
+  border-radius:999px;
+  color:#705d67;
+  font-size:11px;
+  font-weight:800;
+  transition:.3s;
+}
+
+.nav a:hover{
+  color:var(--pink);
+  background:#ffe8f2;
+  transform:translateY(-2px);
+}
+
+.nav .special{
+  color:white;
+  background:linear-gradient(
+    135deg,
+    var(--pink),
+    #f38bb5
+  );
+  box-shadow:0 8px 20px rgba(237,91,150,.25);
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:700;
+
+  border:0;
+  border-radius:999px;
+  padding:12px 17px;
+
+  color:white;
+  background:rgba(237,91,150,.94);
+
+  font-size:11px;
+  font-weight:800;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 12px 35px rgba(220,80,135,.3);
+
+  transition:.3s;
+}
+
+.music:hover{
+  transform:translateY(-4px);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.wrap{
+  position:relative;
+  z-index:2;
+  width:min(1000px,90%);
+  margin:auto;
+  padding:135px 0 70px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+
+.hero-content{
+  width:100%;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+
+  padding:8px 13px;
+  border-radius:999px;
+
+  color:var(--pink);
+  background:rgba(255,255,255,.72);
+  border:1px solid var(--line);
+
+  font-size:11px;
+  font-weight:800;
+
+  animation:fadeUp .8s ease both;
+}
+
+.chapter{
+  margin-top:20px;
+  color:#a17e8e;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  animation:fadeUp .8s .1s ease both;
+}
+
+.title{
+  margin-top:14px;
+
+  font-family:Georgia,serif;
+  font-size:clamp(55px,11vw,105px);
+  line-height:.9;
+  letter-spacing:-6px;
+  font-weight:400;
+
+  animation:titleIn 1s .15s ease both;
+}
+
+.title span{
+  color:var(--pink);
+  font-style:italic;
+  position:relative;
+}
+
+.title span::after{
+  content:"♡";
+  position:absolute;
+  right:-38px;
+  top:-8px;
+  color:#ef8eb2;
+  font-size:25px;
+  animation:heartBeat 1.4s infinite;
+}
+
+.lead{
+  max-width:650px;
+  margin-top:25px;
+
+  color:var(--muted);
+  font-size:clamp(14px,2vw,18px);
+  line-height:1.8;
+
+  animation:fadeUp 1s .3s ease both;
+}
+
+.lead b{
+  color:var(--pink);
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:27px;
+
+  animation:fadeUp 1s .4s ease both;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:12px 17px;
+  border-radius:999px;
+
+  color:#705b66;
+  background:rgba(255,255,255,.8);
+  border:1px solid var(--line);
+
+  font-size:12px;
+  font-weight:800;
+
+  box-shadow:0 10px 25px rgba(160,70,105,.06);
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+  color:var(--pink);
+  box-shadow:0 15px 35px rgba(160,70,105,.13);
+}
+
+.btn.primary{
+  color:white;
+  background:linear-gradient(
+    135deg,
+    var(--pink),
+    #f38ab4
+  );
+}
+
+/* =========================
+   HERO DECOR
+========================= */
+
+.deco{
+  position:absolute;
+  pointer-events:none;
+  opacity:.65;
+  animation:float 5s ease-in-out infinite;
+}
+
+.deco.one{
+  right:5%;
+  top:12%;
+  font-size:45px;
+}
+
+.deco.two{
+  right:18%;
+  top:45%;
+  font-size:25px;
+  animation-delay:1s;
+}
+
+.deco.three{
+  left:2%;
+  bottom:5%;
+  font-size:32px;
+  animation-delay:2s;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0) rotate(-5deg);
+  }
+  50%{
+    transform:translateY(-15px) rotate(7deg);
+  }
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  margin-top:70px;
+  scroll-margin-top:100px;
+}
+
+.section-head{
+  margin-bottom:25px;
+}
+
+.kicker{
+  color:var(--pink);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.section-title{
+  margin-top:8px;
+  font-family:Georgia,serif;
+  font-size:clamp(30px,6vw,52px);
+  font-weight:400;
+  line-height:1;
+}
+
+.section-title span{
+  color:var(--pink);
+  font-style:italic;
+}
+
+.section-desc{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* =========================
+   MEMORY INTRO
+========================= */
+
+.memory-note{
+  padding:20px;
+  border-radius:25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.9),
+      rgba(235,248,255,.72)
+    );
+
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:var(--shadow);
+
+  margin-bottom:25px;
+}
+
+.memory-note strong{
+  color:var(--pink);
+}
+
+.memory-note p{
+  color:#776570;
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.photo-card{
+  position:relative;
+  padding:12px 12px 18px;
+
+  background:#fff;
+  border-radius:8px;
+
+  box-shadow:
+    0 18px 45px rgba(80,60,70,.14);
+
+  transition:.45s;
+  cursor:pointer;
+
+  opacity:0;
+  transform:translateY(25px);
+}
+
+.photo-card.show{
+  opacity:1;
+  transform:none;
+}
+
+.photo-card:hover{
+  transform:
+    translateY(-9px)
+    rotate(0deg)
+    scale(1.015);
+
+  box-shadow:
+    0 25px 60px rgba(80,60,70,.2);
+}
+
+.photo-card:nth-child(1){
+  transform:rotate(-2deg);
+}
+
+.photo-card:nth-child(2){
+  transform:rotate(2deg);
+}
+
+.photo-card:nth-child(3){
+  transform:rotate(1deg);
+}
+
+.photo-card:nth-child(4){
+  transform:rotate(-1.5deg);
+}
+
+.photo-card:nth-child(5){
+  transform:rotate(2deg);
+}
+
+.photo-card:nth-child(6){
+  transform:rotate(-2deg);
+}
+
+.photo{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  display:block;
+  border-radius:5px;
+}
+
+.photo-card::before{
+  content:"";
+  position:absolute;
+  width:70px;
+  height:20px;
+  top:-8px;
+  left:50%;
+  transform:translateX(-50%) rotate(-3deg);
+
+  background:rgba(255,205,225,.65);
+  z-index:2;
+}
+
+.photo-card:nth-child(even)::before{
+  background:rgba(190,230,250,.7);
+  transform:translateX(-50%) rotate(4deg);
+}
+
+.photo-caption{
+  padding-top:13px;
+  text-align:center;
+}
+
+.photo-caption strong{
+  display:block;
+  color:#59434e;
+  font-family:Georgia,serif;
+  font-size:15px;
+}
+
+.photo-caption span{
+  display:block;
+  margin-top:4px;
+  color:#9b838e;
+  font-size:10px;
+}
+
+/* =========================
+   MEMORY COUNTER
+========================= */
+
+.memory-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.memory-stat{
+  padding:18px;
+  text-align:center;
+  border-radius:22px;
+
+  background:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.9);
+
+  transition:.3s;
+}
+
+.memory-stat:hover{
+  transform:translateY(-6px);
+  background:white;
+}
+
+.memory-stat .icon{
+  font-size:22px;
+}
+
+.memory-stat strong{
+  display:block;
+  margin-top:6px;
+  color:var(--pink);
+  font-size:19px;
+}
+
+.memory-stat span{
+  color:#927782;
+  font-size:10px;
+  font-weight:700;
+}
+
+/* =========================
+   LOVE CARD
+========================= */
+
+.love-card{
+  position:relative;
+  overflow:hidden;
+
+  padding:30px;
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.88),
+      rgba(255,232,243,.82),
+      rgba(224,246,255,.8)
+    );
+
+  border:1px solid rgba(255,255,255,.95);
+  box-shadow:var(--shadow);
+}
+
+.love-card::after{
+  content:"♡";
+  position:absolute;
+  right:20px;
+  top:-20px;
+  font-size:120px;
+  color:var(--pink);
+  opacity:.06;
+}
+
+.love-card h2{
+  font-family:Georgia,serif;
+  font-size:25px;
+  font-weight:400;
+}
+
+.love-card h2 span{
+  color:var(--pink);
+  font-style:italic;
+}
+
+.love-card p{
+  max-width:700px;
+  margin-top:13px;
+
+  color:#786570;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.love-button{
+  display:inline-flex;
+  margin-top:17px;
+
+  padding:11px 16px;
+  border-radius:999px;
+
+  color:white;
+  background:var(--pink);
+
+  font-size:11px;
+  font-weight:800;
+
+  transition:.3s;
+}
+
+.love-button:hover{
+  transform:translateY(-3px);
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+  margin-top:25px;
+  padding:25px;
+
+  border-radius:25px;
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(255,255,255,.9);
+
+  font-family:Georgia,serif;
+  color:#806c76;
+
+  font-size:15px;
+  line-height:1.9;
+  text-align:center;
+}
+
+.quote b{
+  color:var(--pink);
+}
+
+/* =========================
+   MINI MENU
+========================= */
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+}
+
+.menu-card{
+  display:block;
+  padding:20px;
+  border-radius:24px;
+
+  background:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.9);
+
+  box-shadow:0 15px 40px rgba(100,70,90,.07);
+
+  transition:.35s;
+}
+
+.menu-card:hover{
+  transform:translateY(-7px);
+  background:white;
+  box-shadow:0 22px 50px rgba(100,70,90,.13);
+}
+
+.menu-icon{
+  font-size:25px;
+}
+
+.menu-card strong{
+  display:block;
+  margin-top:9px;
+  color:#5d4752;
+  font-family:Georgia,serif;
+  font-size:17px;
+}
+
+.menu-card span{
+  display:block;
+  margin-top:5px;
+  color:#927782;
+  font-size:11px;
+  line-height:1.6;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  margin-top:65px;
+  padding:30px 20px;
+  text-align:center;
+
+  border-radius:28px;
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(255,255,255,.9);
+}
+
+.footer-heart{
+  font-size:28px;
+  animation:heartBeat 1.5s infinite;
+}
+
+.footer p{
+  margin-top:8px;
+  color:#8c7680;
+  font-size:11px;
+  line-height:1.8;
+}
+
+.footer b{
+  color:var(--pink);
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:99998;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+
+  background:rgba(35,22,30,.82);
+  backdrop-filter:blur(12px);
+
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+
+.lightbox.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.lightbox img{
+  max-width:94%;
+  max-height:82vh;
+
+  object-fit:contain;
+
+  border:10px solid white;
+  border-radius:6px;
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.35);
+
+  transform:scale(.85);
+  transition:.35s;
+}
+
+.lightbox.active img{
+  transform:scale(1);
+}
+
+.close-lightbox{
+  position:absolute;
+  right:20px;
+  top:20px;
+
+  width:45px;
+  height:45px;
+
+  border:0;
+  border-radius:50%;
+
+  background:white;
+  color:#6d4e5d;
+
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.float-heart{
+  position:fixed;
+  bottom:-30px;
+  z-index:4;
+  pointer-events:none;
+
+  animation:heartFloat linear forwards;
+}
+
+@keyframes heartFloat{
+  to{
+    transform:
+      translateY(-115vh)
+      rotate(30deg);
+
+    opacity:0;
+  }
+}
+
+/* =========================
+   SPARKLES
+========================= */
+
+.spark{
+  position:fixed;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#fff;
+  pointer-events:none;
+  z-index:3;
+
+  box-shadow:
+    0 0 10px #fff,
+    0 0 18px rgba(255,150,195,.8);
+
+  animation:sparkle 2s infinite;
+}
+
+@keyframes sparkle{
+  0%,100%{
+    opacity:.15;
+    transform:scale(.4);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1.4);
+  }
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+@keyframes titleIn{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+@keyframes heartBeat{
+  0%,100%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.25) rotate(7deg);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+  .nav{
+    width:96%;
+  }
+
+  .nav a{
+    font-size:10px;
+    padding:8px 10px;
+  }
+
+  .wrap{
+    width:90%;
+    padding-top:120px;
+  }
+
+  .hero{
+    min-height:75vh;
+  }
+
+  .title{
+    font-size:clamp(52px,16vw,78px);
+    letter-spacing:-4px;
+  }
+
+  .title span::after{
+    right:-25px;
+    font-size:18px;
+  }
+
+  .lead{
+    font-size:14px;
+  }
+
+  .deco.one{
+    right:0;
+    font-size:30px;
+  }
+
+  .deco.two{
+    font-size:20px;
+  }
+
+  .deco.three{
+    font-size:23px;
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .photo-card{
+    padding:8px 8px 13px;
+  }
+
+  .photo-caption{
+    padding-top:9px;
+  }
+
+  .photo-caption strong{
+    font-size:12px;
+  }
+
+  .photo-caption span{
+    font-size:8px;
+  }
+
+  .memory-stats{
+    grid-template-columns:1fr;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .menu-card{
+    padding:16px;
+  }
+
+  .menu-card strong{
+    font-size:14px;
+  }
+
+  .menu-card span{
+    font-size:9px;
+  }
+
+  .love-card{
+    padding:22px;
+  }
+
+  .music{
+    right:10px;
+    bottom:10px;
+    padding:10px 13px;
+    font-size:10px;
+  }
+}
+
+@media(max-width:400px){
+
+  .gallery{
+    gap:9px;
+  }
+
+  .menu-grid{
+    gap:9px;
+  }
+
+  .title{
+    font-size:50px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+  }
+}
 </style>
 </head>
+
 <body>
-<div class="wrap">
-<header class="hero" id="home">
-<div>♡</div><div class="mini">a tiny place for us</div>
-<h1>Abel & Iky</h1>
-<p>kumpulan kecil dari momen yang mungkin sederhana, tapi selalu punya tempat sendiri di hati aku</p>
-</header>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<div class="opening" id="opening">
+
+  <div class="opening-inner">
+
+    <div class="opening-small">
+      a little surprise
+    </div>
+
+    <h1>
+      this little place
+      <span>is for abel ♡</span>
+    </h1>
+
+    <p>
+      ngga ada yang terlalu besar di sini,
+      cuma kumpulan momen kecil yang dibuat
+      karna ada kamu 🩷
+    </p>
+
+    <button class="open-btn" id="openBtn">
+      buka untuk abel ♡
+    </button>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav class="nav">
-<button class="active" onclick="go('home',this)">home</button>
-<button onclick="go('moments',this)">our moments</button>
-<button onclick="go('story',this)">our story</button>
-<button onclick="go('note',this)">little note</button>
+
+  <a href="#home">
+    🏠 home
+  </a>
+
+  <a href="#momen">
+    📸 momen
+  </a>
+
+  <a href="cerita.html">
+    📖 cerita
+  </a>
+
+  <a href="timeline.html">
+    🕰️ timeline
+  </a>
+
+  <a href="reasons.html">
+    💗 alasan
+  </a>
+
+  <a href="surprise.html">
+    🎁 surprise
+  </a>
+
+  <a href="surat.html">
+    💌 surat
+  </a>
+
+  <a href="untukabel.html" class="special">
+    💗 special abel
+  </a>
+
 </nav>
 
-<section class="card" id="moments">
-<h2 class="section-title">our little moments ♡</h2>
-<p class="section-sub">beberapa foto dari hari kemarin, disimpan di sini biar bisa dilihat lagi kapan-kapan</p>
-<div class="gallery">
-<div class="frame"><span class="tape"></span><img src="foto/foto1.jpeg" onclick="openImg(this.src)"><div class="caption">our first frame ♡</div></div>
-<div class="frame"><span class="tape"></span><img src="foto/foto2.jpeg" onclick="openImg(this.src)"><div class="caption">ketawa bareng</div></div>
-<div class="frame"><span class="tape"></span><img src="foto/foto3.jpeg" onclick="openImg(this.src)"><div class="caption">mode paling lucu</div></div>
-<div class="frame"><span class="tape"></span><img src="foto/foto4.jpeg" onclick="openImg(this.src)"><div class="caption">my pretty girl</div></div>
-<div class="frame"><span class="tape"></span><img src="foto/foto5.jpeg" onclick="openImg(this.src)"><div class="caption">bunga buat abel ♡</div></div>
-<div class="frame"><span class="tape"></span><img src="foto/foto6.jpeg" onclick="openImg(this.src)"><div class="caption">satu hari yang manis</div></div>
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio
+  id="loveMusic"
+  loop
+  preload="auto"
+  src="I_Lay_My_Love_On_You.mp3">
+</audio>
+
+<button class="music" id="musicBtn">
+  🎵 putar lagu
+</button>
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="wrap">
+
+<section class="hero" id="home">
+
+  <div class="deco one">♡</div>
+  <div class="deco two">✦</div>
+  <div class="deco three">♡</div>
+
+  <div class="hero-content">
+
+    <div class="badge">
+      💌 made quietly with love
+    </div>
+
+    <div class="chapter">
+      chapter 01 · little moments
+    </div>
+
+    <h1 class="title">
+      little<br>
+      <span>moments</span><br>
+      abel
+    </h1>
+
+    <p class="lead">
+      sebuah tempat kecil untuk menyimpan
+      cerita <b>iky & abel</b>,
+      tawa kecil,
+      foto random,
+      dan semua momen sederhana
+      yang ternyata jadi berarti 🩷
+    </p>
+
+    <div class="hero-buttons">
+
+      <a class="btn primary" href="#momen">
+        📸 lihat foto kita
+      </a>
+
+      <a class="btn" href="cerita.html">
+        ♡ cerita kita
+      </a>
+
+      <a class="btn" href="untukabel.html">
+        💌 untuk abel
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     MOMEN
+========================= -->
+
+<section class="section" id="momen">
+
+  <div class="section-head">
+
+    <div class="kicker">
+      chapter 02 · our memories
+    </div>
+
+    <h2 class="section-title">
+      foto kecil,<br>
+      <span>kenangan besar</span>
+    </h2>
+
+    <p class="section-desc">
+      beberapa foto dari hari yang kemarin,
+      yang mungkin sederhana tapi tetap pengen iky simpan di sini 🤍
+    </p>
+
+  </div>
+
+  <div class="memory-note">
+
+    <p>
+      <strong>buat abel,</strong>
+      kalau suatu hari nanti kita lupa detail hari ini,
+      setidaknya foto-foto ini masih bisa ngingetin
+      kalau pernah ada satu hari dimana kita ketawa,
+      jalan bareng, dan bikin kenangan kecil yang sekarang
+      punya tempat sendiri di sini 🫶🏻
+    </p>
+
+  </div>
+
+  <div class="gallery">
+
+    <div class="photo-card">
+      <img
+        class="photo"
+        src="foto1.jpeg"
+        alt="momen iky dan abel 1">
+      <div class="photo-caption">
+        <strong>our first little frame</strong>
+        <span>momen yang bakal iky simpan</span>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img
+        class="photo"
+        src="foto2.jpeg"
+        alt="momen iky dan abel 2">
+      <div class="photo-caption">
+        <strong>dua manusia random</strong>
+        <span>tapi cocoknya aneh banget 😭</span>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img
+        class="photo"
+        src="foto3.jpeg"
+        alt="momen iky dan abel 3">
+      <div class="photo-caption">
+        <strong>senyum kecil</strong>
+        <span>yang ternyata bikin hari jadi lebih indah</span>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img
+        class="photo"
+        src="foto4.jpeg"
+        alt="momen iky dan abel 4">
+      <div class="photo-caption">
+        <strong>another little moment</strong>
+        <span>jangan lupa hari ini yaa</span>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img
+        class="photo"
+        src="foto5.jpeg"
+        alt="momen iky dan abel 5">
+      <div class="photo-caption">
+        <strong>abel with her flowers</strong>
+        <span>cantiknya malah bikin bunga kalah</span>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img
+        class="photo"
+        src="foto6.jpeg"
+        alt="momen iky dan abel 6">
+      <div class="photo-caption">
+        <strong>one more memory</strong>
+        <span>buat kita lihat lagi nanti</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="memory-stats">
+
+    <div class="memory-stat">
+      <div class="icon">📸</div>
+      <strong>06</strong>
+      <span>foto disimpan</span>
+    </div>
+
+    <div class="memory-stat">
+      <div class="icon">🌷</div>
+      <strong>01</strong>
+      <span>hari yang berkesan</span>
+    </div>
+
+    <div class="memory-stat">
+      <div class="icon">♡</div>
+      <strong>01</strong>
+      <span>orang spesial</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     LOVE CARD
+========================= -->
+
+<section class="section">
+
+  <div class="love-card">
+
+    <h2>
+      untuk <span>abel</span>, yang mungkin ngga sadar...
+    </h2>
+
+    <p>
+      mungkin buat orang lain ini cuma enam foto biasa,
+      tapi buat iky setiap foto punya ceritanya sendiri.
+      ada ketawa, ada malu-malu, ada foto random,
+      ada momen yang kalau dipikir lagi ternyata
+      sesederhana itu tapi tetap bikin senyum.
+    </p>
+
+    <p>
+      makasih ya sayanggg,
+      udah hadir dan bikin hari-hari iky punya
+      banyak hal kecil yang pengen diingat 🩷
+    </p>
+
+    <a class="love-button" href="untukabel.html">
+      buka pesan khusus buat abel →
+    </a>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     QUOTE
+========================= -->
+
+<section class="section">
+
+  <div class="quote">
+
+    “ngga semua kenangan harus berupa
+    sesuatu yang besar,
+
+    kadang cukup satu foto,
+    satu tawa,
+    satu sore,
+    dan satu orang yang bikin semuanya
+    terasa berarti.”
+
+    <br><br>
+
+    <b>iky ♡ abel</b>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="section">
+
+  <div class="section-head">
+
+    <div class="kicker">
+      little menu
+    </div>
+
+    <h2 class="section-title">
+      jangan berhenti<br>
+      <span>di sini yaa</span>
+    </h2>
+
+    <p class="section-desc">
+      masih ada beberapa tempat kecil lainnya
+      yang sengaja iky buat buat abel
+    </p>
+
+  </div>
+
+  <div class="menu-grid">
+
+    <a class="menu-card" href="cerita.html">
+
+      <div class="menu-icon">📖</div>
+
+      <strong>cerita kita</strong>
+
+      <span>
+        dari awal kenal sampai
+        kenapa akhirnya bisa sampai di sini
+      </span>
+
+    </a>
+
+    <a class="menu-card" href="timeline.html">
+
+      <div class="menu-icon">🕰️</div>
+
+      <strong>timeline</strong>
+
+      <span>
+        perjalanan kecil yang
+        pelan-pelan jadi berarti
+      </span>
+
+    </a>
+
+    <a class="menu-card" href="reasons.html">
+
+      <div class="menu-icon">💗</div>
+
+      <strong>alasan</strong>
+
+      <span>
+        beberapa alasan kenapa
+        abel begitu spesial buat iky
+      </span>
+
+    </a>
+
+    <a class="menu-card" href="surprise.html">
+
+      <div class="menu-icon">🎁</div>
+
+      <strong>surprise</strong>
+
+      <span>
+        jangan dibuka kalau
+        belum siap dibuat senyum
+      </span>
+
+    </a>
+
+    <a class="menu-card" href="surat.html">
+
+      <div class="menu-icon">💌</div>
+
+      <strong>surat kecil</strong>
+
+      <span>
+        sesuatu yang lebih enak
+        dibaca pelan-pelan
+      </span>
+
+    </a>
+
+    <a class="menu-card" href="untukabel.html">
+
+      <div class="menu-icon">🩷</div>
+
+      <strong>special untuk abel</strong>
+
+      <span>
+        halaman yang memang
+        dibuat khusus untuk kamu
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+  <div class="footer-heart">
+    ♡
+  </div>
+
+  <p>
+    dibuat dari sedikit kode,
+    banyak kenangan,
+    dan satu orang yang spesial
+    <br><br>
+
+    <b>iky ♡ abel</b>
+
+    <br>
+
+    <span>
+      semoga halaman kecil ini
+      selalu punya alasan untuk dibuka lagi
+    </span>
+  </p>
+
+</footer>
+
+</main>
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div class="lightbox" id="lightbox">
+
+  <button
+    class="close-lightbox"
+    id="closeLightbox">
+    ×
+  </button>
+
+  <img id="lightboxImg" src="" alt="foto kenangan">
+
 </div>
-</section>
-
-<section class="card story" id="story">
-<h2 class="section-title">our story ♡</h2>
-<p>aku kenal kamu tanpa pernah benar-benar merencanakannya, cuma berawal dari obrolan di tele, sampai akhirnya aku punya seseorang yang ternyata bisa bikin hari-hari aku terasa berbeda</p>
-<p>waktu itu hati aku sempat mati rasa, aku bahkan nggak kepikiran buat dekat sama siapa-siapa lagi karena hal-hal dari masa lalu</p>
-<p>tapi kemudian ada kamu, seseorang yang pelan-pelan bikin aku nyaman, bikin aku senyum lagi, dan bikin aku percaya kalau ternyata rasa sayang bisa datang dengan cara yang sederhana</p>
-<div class="highlight">kalau suatu hari kamu lupa betapa berharganya kamu, buka halaman ini lagi ya, karena ada seseorang di sini yang bersyukur banget pernah menemukan kamu ♡</div>
-</section>
-
-<section class="card note" id="note">
-<h2 class="section-title">little note for abel</h2>
-<div class="memory"><div class="icon">🌷</div><div><h3>makasih ya sayang</h3><p>makasih sudah hadir dan jadi bagian dari hari-hari aku, aku nggak selalu jago ngomongin perasaan, tapi aku harap kamu selalu tahu kalau kamu berarti banget buat aku</p></div></div>
-<div class="memory"><div class="icon">🫶🏻</div><div><h3>nggak perlu sempurna</h3><p>aku nggak butuh kamu jadi sempurna, jadi kamu yang apa adanya aja udah cukup buat aku</p></div></div>
-<div class="memory"><div class="icon">💗</div><div><h3>buat hari-hari berikutnya</h3><p>semoga nanti bakal ada lebih banyak foto, lebih banyak cerita, lebih banyak ketawa, dan lebih banyak momen kecil yang bisa kita simpan di sini</p></div></div>
-<div class="highlight">abel sayang iky, dan iky sayang abel banyaaa banyaaa ♡</div>
-</section>
-
-<footer class="footer">dibuat kecil-kecilan khusus buat abel ♡<br>one day, we'll look back at these little moments and smile</footer>
-</div>
-
-<button class="music" onclick="toggleMusic()" id="musicBtn">♫ music</button>
-<audio id="audio" loop><source src="I_Lay_My_Love_On_You.mp3" type="audio/mpeg"></audio>
-<div id="lightbox" onclick="closeImg()"><button class="close">×</button><img id="lightboxImg"></div>
 
 <script>
-function go(id,b){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
-function openImg(s){document.getElementById('lightboxImg').src=s;document.getElementById('lightbox').classList.add('show')}
-function closeImg(){document.getElementById('lightbox').classList.remove('show')}
-const a=document.getElementById('audio'),m=document.getElementById('musicBtn');
-function toggleMusic(){if(a.paused){a.play().then(()=>m.textContent='❚❚ music').catch(()=>alert('masukkan file I_Lay_My_Love_On_You.mp3 ke folder website dulu ♡'))}else{a.pause();m.textContent='♫ music'}}
+
+/* =========================
+   OPENING
+========================= */
+
+const opening =
+  document.getElementById("opening");
+
+const openBtn =
+  document.getElementById("openBtn");
+
+openBtn.addEventListener("click",()=>{
+
+  opening.classList.add("hide");
+
+  setTimeout(()=>{
+    opening.style.display="none";
+  },1000);
+
+  startHearts();
+  startSparkles();
+
+});
+
+/* =========================
+   MUSIC
+========================= */
+
+const music =
+  document.getElementById("loveMusic");
+
+const musicBtn =
+  document.getElementById("musicBtn");
+
+let playing=false;
+
+musicBtn.addEventListener("click",async()=>{
+
+  try{
+
+    if(!playing){
+
+      await music.play();
+
+      playing=true;
+
+      musicBtn.innerHTML =
+        "⏸️ pause lagu";
+
+    }else{
+
+      music.pause();
+
+      playing=false;
+
+      musicBtn.innerHTML =
+        "🎵 putar lagu";
+
+    }
+
+  }catch(error){
+
+    alert(
+      "tekan tombolnya sekali lagi untuk memutar lagu yaa 🩷"
+    );
+
+  }
+
+});
+
+/* =========================
+   PHOTO LIGHTBOX
+========================= */
+
+const lightbox =
+  document.getElementById("lightbox");
+
+const lightboxImg =
+  document.getElementById("lightboxImg");
+
+const closeLightbox =
+  document.getElementById("closeLightbox");
+
+document.querySelectorAll(".photo-card").forEach(card=>{
+
+  card.addEventListener("click",()=>{
+
+    const image =
+      card.querySelector("img");
+
+    lightboxImg.src =
+      image.src;
+
+    lightbox.classList.add("active");
+
+  });
+
+});
+
+closeLightbox.addEventListener("click",()=>{
+
+  lightbox.classList.remove("active");
+
+});
+
+lightbox.addEventListener("click",(e)=>{
+
+  if(e.target===lightbox){
+
+    lightbox.classList.remove("active");
+
+  }
+
+});
+
+/* =========================
+   SCROLL PHOTO REVEAL
+========================= */
+
+const cards =
+  document.querySelectorAll(".photo-card");
+
+const observer =
+  new IntersectionObserver(
+    entries=>{
+
+      entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("show");
+
+        }
+
+      });
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+cards.forEach(card=>{
+  observer.observe(card);
+});
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart(){
+
+  const heart =
+    document.createElement("div");
+
+  heart.className="float-heart";
+
+  const symbols=[
+    "♡",
+    "♥",
+    "🩷",
+    "🤍",
+    "✦"
+  ];
+
+  heart.innerHTML =
+    symbols[
+      Math.floor(
+        Math.random()*symbols.length
+      )
+    ];
+
+  heart.style.left =
+    Math.random()*100+"vw";
+
+  heart.style.fontSize =
+    (10+Math.random()*18)+"px";
+
+  heart.style.opacity =
+    .35+Math.random()*.5;
+
+  const duration =
+    5+Math.random()*7;
+
+  heart.style.animationDuration =
+    duration+"s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },duration*1000);
+
+}
+
+function startHearts(){
+
+  setInterval(
+    createHeart,
+    900
+  );
+
+}
+
+/* =========================
+   SPARKLES
+========================= */
+
+function startSparkles(){
+
+  for(let i=0;i<16;i++){
+
+    const spark =
+      document.createElement("div");
+
+    spark.className="spark";
+
+    spark.style.left =
+      Math.random()*100+"vw";
+
+    spark.style.top =
+      Math.random()*100+"vh";
+
+    spark.style.animationDelay =
+      Math.random()*2+"s";
+
+    document.body.appendChild(spark);
+
+  }
+
+}
+
+/* =========================
+   ESC LIGHTBOX
+========================= */
+
+document.addEventListener(
+  "keydown",
+  e=>{
+
+    if(e.key==="Escape"){
+
+      lightbox.classList.remove("active");
+
+    }
+
+  }
+);
+
 </script>
+
 </body>
 </html>
