@@ -3,14 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffd9ed">
 
 <title>little moments abelll ♡</title>
 
 <style>
 
-/* =========================
-   BASIC
-========================= */
+/* =========================================================
+   GOOGLE FONT
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --pink:#ffb6d9;
+    --pink2:#ff8fc5;
+    --pink3:#ffd9ec;
+    --blue:#bfe8ff;
+    --blue2:#8dd7ff;
+    --white:#ffffff;
+    --dark:#403343;
+    --soft:#fff7fb;
+    --shadow:0 15px 40px rgba(255,143,197,.20);
+    --radius:28px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -23,383 +49,463 @@ html{
 }
 
 body{
-    font-family:"Trebuchet MS", Arial, sans-serif;
-    color:#5c4050;
+    min-height:100vh;
     overflow-x:hidden;
-
+    font-family:'Poppins',sans-serif;
+    color:var(--dark);
     background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.7), transparent 25%),
-        radial-gradient(circle at 80% 10%, rgba(190,225,255,.5), transparent 30%),
-        linear-gradient(135deg,#ffd9ec,#d9efff,#ffe3f1,#d9f0ff);
-
-    background-size:400% 400%;
-    animation:bgMove 14s ease infinite;
+        radial-gradient(circle at 10% 10%,rgba(255,182,217,.35),transparent 25%),
+        radial-gradient(circle at 90% 20%,rgba(191,232,255,.45),transparent 25%),
+        radial-gradient(circle at 50% 100%,rgba(255,217,236,.45),transparent 30%),
+        linear-gradient(135deg,#fff9fc,#f8fcff,#fff7fb);
 }
 
-@keyframes bgMove{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:8px;
 }
 
-/* =========================
-   CURSOR GLOW
-========================= */
-
-.cursor-glow{
-    position:fixed;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    pointer-events:none;
-    transform:translate(-50%,-50%);
-    background:radial-gradient(circle,rgba(255,150,205,.18),transparent 70%);
-    z-index:9999;
+::-webkit-scrollbar-track{
+    background:#fff0f7;
 }
 
-/* =========================
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--pink2),var(--blue2));
+    border-radius:20px;
+}
+
+
+/* =========================================================
    LOADING
-========================= */
+========================================================= */
 
-.loader{
+#loading{
     position:fixed;
     inset:0;
-    background:linear-gradient(135deg,#ffd7ea,#d8efff);
-    z-index:10000;
+    z-index:99999;
     display:flex;
     align-items:center;
     justify-content:center;
-    flex-direction:column;
-    transition:1s;
+    background:linear-gradient(135deg,#ffd7eb,#d8f2ff);
+    transition:opacity .8s ease,visibility .8s ease;
 }
 
-.loader-heart{
+#loading.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loading-box{
+    text-align:center;
+}
+
+.loading-heart{
     font-size:70px;
     animation:heartbeat 1s infinite;
+    filter:drop-shadow(0 10px 20px rgba(255,105,170,.25));
 }
 
-.loader p{
+.loading-text{
     margin-top:15px;
-    font-size:15px;
-    color:#8d6076;
+    font-family:'Pacifico',cursive;
+    font-size:24px;
+    color:#e879ad;
 }
 
-@keyframes heartbeat{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.25)}
+.loading-dots{
+    margin-top:10px;
+    letter-spacing:5px;
+    color:#8bcfee;
 }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
 
-.hearts{
+/* =========================================================
+   BACKGROUND EFFECT
+========================================================= */
+
+.bg-heart{
     position:fixed;
-    inset:0;
+    z-index:-1;
     pointer-events:none;
-    overflow:hidden;
-    z-index:1;
+    opacity:.35;
+    animation:floatAround linear infinite;
 }
 
-.heart{
-    position:absolute;
-    bottom:-50px;
+.bg-heart:nth-child(1){
+    left:4%;
+    top:20%;
+    font-size:22px;
+    animation-duration:9s;
+}
+
+.bg-heart:nth-child(2){
+    right:8%;
+    top:35%;
+    font-size:28px;
+    animation-duration:12s;
+}
+
+.bg-heart:nth-child(3){
+    left:15%;
+    bottom:10%;
     font-size:18px;
-    opacity:.7;
-    animation:floatHeart linear forwards;
+    animation-duration:10s;
 }
 
-@keyframes floatHeart{
-    0%{
-        transform:translateY(0) rotate(0deg) scale(.8);
-        opacity:0;
-    }
-
-    15%{
-        opacity:.8;
-    }
-
-    100%{
-        transform:translateY(-110vh) rotate(360deg) scale(1.4);
-        opacity:0;
-    }
+.bg-heart:nth-child(4){
+    right:20%;
+    bottom:25%;
+    font-size:25px;
+    animation-duration:14s;
 }
 
-/* =========================
-   SPARKLES
-========================= */
 
-.sparkles{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:2;
-}
-
-.spark{
-    position:absolute;
-    width:4px;
-    height:4px;
-    border-radius:50%;
-    background:white;
-    box-shadow:0 0 12px white;
-    animation:sparkle 2s infinite ease-in-out;
-}
-
-@keyframes sparkle{
-    0%,100%{
-        opacity:.1;
-        transform:scale(.5);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.7);
-    }
-}
-
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
-nav{
+.navbar{
     position:fixed;
-    top:15px;
+    top:18px;
     left:50%;
     transform:translateX(-50%);
     width:calc(100% - 30px);
-    max-width:900px;
-
-    padding:12px 18px;
-
+    max-width:1000px;
+    z-index:5000;
+    padding:12px 16px;
+    border:1px solid rgba(255,255,255,.8);
+    border-radius:30px;
+    background:rgba(255,255,255,.68);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 12px 35px rgba(83,55,73,.10);
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    background:rgba(255,255,255,.62);
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.8);
-    border-radius:30px;
-
-    box-shadow:
-        0 10px 35px rgba(140,100,140,.15),
-        inset 0 0 20px rgba(255,255,255,.5);
-
-    z-index:1000;
 }
 
 .logo{
-    font-weight:bold;
-    color:#d477a5;
-    font-size:15px;
+    font-family:'Pacifico',cursive;
+    font-size:21px;
+    color:#ed77af;
+    text-decoration:none;
+    white-space:nowrap;
 }
 
 .nav-links{
     display:flex;
-    gap:7px;
+    gap:6px;
+    align-items:center;
 }
 
 .nav-links a{
     text-decoration:none;
-    color:#755567;
+    color:#675565;
     font-size:12px;
-    padding:8px 11px;
+    font-weight:600;
+    padding:9px 12px;
     border-radius:20px;
     transition:.3s;
 }
 
 .nav-links a:hover{
-    background:#ffd4e8;
-    color:#b94f83;
+    background:#ffe2f0;
+    color:#e76ba7;
     transform:translateY(-2px);
 }
 
-/* =========================
-   MUSIC BUTTON
-========================= */
-
 .music-btn{
-    position:fixed;
-    right:18px;
-    bottom:20px;
-
-    width:55px;
-    height:55px;
-
     border:none;
-    border-radius:50%;
-
-    background:linear-gradient(135deg,#ff9bc7,#8fd6ff);
+    background:linear-gradient(135deg,#ff9fcb,#9edfff);
     color:white;
-
-    font-size:22px;
-
-    box-shadow:
-        0 8px 25px rgba(160,100,150,.3);
-
+    width:42px;
+    height:42px;
+    border-radius:50%;
     cursor:pointer;
-    z-index:1000;
-
+    font-size:18px;
+    box-shadow:0 7px 18px rgba(255,145,196,.25);
     transition:.3s;
 }
 
 .music-btn:hover{
-    transform:scale(1.12) rotate(8deg);
+    transform:scale(1.08) rotate(5deg);
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
     min-height:100vh;
-
+    position:relative;
     display:flex;
     align-items:center;
     justify-content:center;
+    padding:130px 20px 80px;
+    overflow:hidden;
+}
 
-    padding:100px 20px 60px;
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(255,182,217,.25);
+    filter:blur(50px);
+    left:-180px;
+    top:100px;
+    animation:blob 8s ease-in-out infinite;
+}
 
+.hero::after{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:rgba(141,215,255,.25);
+    filter:blur(50px);
+    right:-150px;
+    bottom:0;
+    animation:blob 10s ease-in-out infinite reverse;
+}
+
+.hero-content{
+    max-width:850px;
     position:relative;
     z-index:5;
-}
-
-.hero-card{
-    width:100%;
-    max-width:850px;
-
     text-align:center;
-
-    padding:55px 25px;
-
-    border-radius:40px;
-
-    background:rgba(255,255,255,.45);
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.75);
-
-    box-shadow:
-        0 25px 80px rgba(120,90,130,.15),
-        inset 0 0 40px rgba(255,255,255,.4);
-
-    animation:heroFloat 5s ease-in-out infinite;
 }
 
-@keyframes heroFloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-8px)}
-}
-
-.mini{
-    color:#c4779b;
-    font-size:14px;
-    letter-spacing:2px;
-    margin-bottom:12px;
+.small-title{
+    display:inline-block;
+    padding:8px 17px;
+    border-radius:30px;
+    background:rgba(255,255,255,.75);
+    color:#e783b1;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:1px;
+    box-shadow:0 8px 25px rgba(255,130,180,.12);
+    animation:fadeUp .9s ease both;
 }
 
 .hero h1{
-    font-size:clamp(42px,10vw,80px);
-    color:#d96f9e;
-
-    text-shadow:
-        3px 3px 0 #fff,
-        0 8px 30px rgba(210,100,160,.2);
-
-    margin-bottom:12px;
+    margin-top:25px;
+    font-family:'Pacifico',cursive;
+    font-size:clamp(48px,10vw,100px);
+    line-height:1.05;
+    background:linear-gradient(135deg,#ef7cb4,#8ccff1,#ef7cb4);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:gradientMove 5s linear infinite,fadeUp 1s ease both;
 }
 
-.typing{
-    min-height:30px;
-    color:#75576a;
-    font-size:16px;
+.hero-sub{
+    max-width:650px;
+    margin:25px auto 0;
+    font-size:15px;
+    line-height:2;
+    color:#756675;
+    animation:fadeUp 1.3s ease both;
 }
 
-.hero-heart{
-    font-size:40px;
-    margin:20px 0;
-    animation:heartbeat 1.4s infinite;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+    animation:fadeUp 1.5s ease both;
 }
 
-.start-btn{
-    display:inline-block;
-    margin-top:20px;
-
-    padding:13px 25px;
-
-    border-radius:30px;
-
+.btn{
+    border:none;
     text-decoration:none;
+    padding:13px 22px;
+    border-radius:30px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    cursor:pointer;
+    transition:.35s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.btn-primary{
     color:white;
-
-    background:linear-gradient(135deg,#ff91bf,#8ecfff);
-
-    box-shadow:0 10px 25px rgba(180,100,160,.25);
-
-    transition:.3s;
+    background:linear-gradient(135deg,#ff91c3,#9edfff);
+    box-shadow:0 12px 30px rgba(255,137,190,.22);
 }
 
-.start-btn:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 15px 35px rgba(180,100,160,.35);
+.btn-secondary{
+    color:#df76aa;
+    background:white;
+    border:1px solid #ffd5e8;
 }
 
-/* =========================
+.btn:hover{
+    transform:translateY(-4px) scale(1.02);
+}
+
+
+/* =========================================================
+   FLOATING DECORATIONS
+========================================================= */
+
+.float{
+    position:absolute;
+    pointer-events:none;
+    user-select:none;
+    animation:float 4s ease-in-out infinite;
+}
+
+.float.one{
+    top:23%;
+    left:7%;
+    font-size:32px;
+}
+
+.float.two{
+    top:30%;
+    right:7%;
+    font-size:27px;
+    animation-delay:1s;
+}
+
+.float.three{
+    bottom:18%;
+    left:10%;
+    font-size:25px;
+    animation-delay:2s;
+}
+
+.float.four{
+    bottom:15%;
+    right:11%;
+    font-size:34px;
+    animation-delay:.5s;
+}
+
+
+/* =========================================================
    SECTION
-========================= */
+========================================================= */
 
 section{
     position:relative;
-    z-index:5;
+    padding:100px 20px;
+}
 
-    padding:90px 18px;
+.section-container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-label{
+    color:#ef80b5;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
 }
 
 .section-title{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.section-title span{
-    color:#d778a4;
-    font-size:13px;
-    letter-spacing:2px;
-}
-
-.section-title h2{
-    font-size:34px;
-    color:#754f64;
     margin-top:8px;
+    font-family:'Pacifico',cursive;
+    font-size:clamp(34px,6vw,54px);
+    color:#554351;
 }
 
-/* =========================
-   PHOTO GALLERY
-========================= */
+.section-desc{
+    max-width:600px;
+    margin:15px auto 0;
+    color:#877887;
+    line-height:1.9;
+    font-size:14px;
+}
 
-.gallery{
-    max-width:1000px;
+
+/* =========================================================
+   MEMORY INTRO
+========================================================= */
+
+.memory-intro{
+    padding-top:70px;
+}
+
+.memory-note{
+    position:relative;
+    max-width:700px;
     margin:auto;
+    padding:35px;
+    background:rgba(255,255,255,.78);
+    border-radius:30px;
+    border:2px dashed #ffd0e5;
+    box-shadow:var(--shadow);
+    transform:rotate(-1deg);
+}
 
+.memory-note::before{
+    content:"♡";
+    position:absolute;
+    top:-20px;
+    right:35px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#ffb2d5;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    box-shadow:0 8px 20px rgba(255,140,190,.25);
+}
+
+.memory-note p{
+    text-align:center;
+    line-height:2;
+    font-size:14px;
+    color:#6d5b6b;
+}
+
+
+/* =========================================================
+   PHOTO GRID
+========================================================= */
+
+.photo-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:28px;
+    gap:35px 25px;
+    align-items:start;
 }
 
 .photo-card{
     position:relative;
-
-    padding:12px 12px 35px;
-
-    background:#fffdfc;
-
-    border-radius:5px;
-
+    padding:13px 13px 20px;
+    background:#fff;
+    border-radius:8px;
     box-shadow:
-        0 12px 30px rgba(80,60,70,.16);
-
-    transition:.45s;
-
+        0 15px 30px rgba(73,53,66,.12),
+        0 3px 5px rgba(73,53,66,.06);
+    transition:.45s cubic-bezier(.2,.8,.2,1);
     cursor:pointer;
 }
 
@@ -416,7 +522,7 @@ section{
 }
 
 .photo-card:nth-child(4){
-    transform:rotate(3deg);
+    transform:rotate(2deg);
 }
 
 .photo-card:nth-child(5){
@@ -424,791 +530,1599 @@ section{
 }
 
 .photo-card:nth-child(6){
-    transform:rotate(2deg);
+    transform:rotate(3deg);
 }
 
 .photo-card:hover{
-    transform:rotate(0deg) translateY(-12px) scale(1.04);
-    z-index:20;
-
-    box-shadow:
-        0 25px 50px rgba(100,70,90,.25);
+    transform:translateY(-12px) rotate(0deg) scale(1.035);
+    z-index:5;
+    box-shadow:0 25px 50px rgba(74,51,67,.20);
 }
 
-.photo-card img{
-    width:100%;
-    aspect-ratio:3/4;
-
-    object-fit:cover;
-
-    display:block;
-
-    border-radius:3px;
-}
-
-.tape{
+.photo-card::before{
+    content:"";
     position:absolute;
-
     width:70px;
     height:20px;
-
-    background:rgba(255,194,218,.75);
-
     top:-9px;
     left:50%;
-
     transform:translateX(-50%) rotate(-2deg);
-
+    background:rgba(255,202,224,.75);
     z-index:3;
 }
 
-.photo-caption{
-    position:absolute;
-    bottom:9px;
-    left:0;
-    width:100%;
-
-    text-align:center;
-
-    font-size:13px;
-    color:#8a6678;
+.photo-card.blue-tape::before{
+    background:rgba(175,226,250,.78);
+    transform:translateX(-50%) rotate(3deg);
 }
 
-/* =========================
-   PHOTO MODAL
-========================= */
+.photo-wrap{
+    width:100%;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    background:#f4f4f4;
+    border-radius:3px;
+}
 
-.photo-modal{
-    position:fixed;
-    inset:0;
+.photo-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .7s ease;
+}
 
-    background:rgba(35,20,30,.78);
+.photo-card:hover img{
+    transform:scale(1.07);
+}
 
-    backdrop-filter:blur(10px);
+.photo-caption{
+    padding:15px 8px 2px;
+    text-align:center;
+    font-family:'Fredoka',sans-serif;
+    color:#71606f;
+    font-size:15px;
+}
 
-    display:none;
+.photo-caption small{
+    display:block;
+    margin-top:3px;
+    font-family:'Poppins',sans-serif;
+    font-size:10px;
+    color:#b59cac;
+}
+
+
+/* =========================================================
+   STICKER
+========================================================= */
+
+.sticker{
+    position:absolute;
+    right:-13px;
+    bottom:45px;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
     align-items:center;
     justify-content:center;
-
-    padding:20px;
-
-    z-index:5000;
+    font-size:26px;
+    box-shadow:0 8px 18px rgba(70,50,60,.15);
+    transform:rotate(12deg);
+    transition:.3s;
 }
 
-.photo-modal.active{
+.photo-card:hover .sticker{
+    transform:rotate(-15deg) scale(1.15);
+}
+
+
+/* =========================================================
+   LITTLE POLAROIDS
+========================================================= */
+
+.mini-memories{
+    margin-top:70px;
     display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
 }
 
-.photo-modal img{
-    max-width:95%;
-    max-height:85vh;
-
-    border:10px solid white;
-
-    box-shadow:0 25px 70px rgba(0,0,0,.4);
-
-    animation:modalPop .4s ease;
+.mini-card{
+    width:180px;
+    background:#fff;
+    padding:10px 10px 17px;
+    box-shadow:0 12px 30px rgba(72,50,65,.12);
+    transform:rotate(-4deg);
+    transition:.3s;
 }
 
-@keyframes modalPop{
-    from{
-        transform:scale(.7) rotate(-4deg);
-        opacity:0;
-    }
-
-    to{
-        transform:scale(1) rotate(0);
-        opacity:1;
-    }
+.mini-card:nth-child(2){
+    transform:rotate(4deg);
 }
 
-.close-modal{
-    position:absolute;
-    top:20px;
-    right:25px;
-
-    color:white;
-    font-size:35px;
-
-    cursor:pointer;
+.mini-card:nth-child(3){
+    transform:rotate(-2deg);
 }
 
-/* =========================
-   MENU CARDS
-========================= */
+.mini-card:hover{
+    transform:translateY(-8px) rotate(0deg);
+}
 
-.menu-grid{
-    max-width:950px;
+.mini-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.mini-card p{
+    text-align:center;
+    margin-top:10px;
+    font-family:'Fredoka',sans-serif;
+    color:#776576;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story-box{
+    max-width:850px;
     margin:auto;
+    position:relative;
+}
 
+.story-line{
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:linear-gradient(#ffafd2,#a7ddf7,#ffafd2);
+    transform:translateX(-50%);
+    border-radius:10px;
+}
+
+.story-item{
+    width:50%;
+    padding:20px 45px;
+    position:relative;
+}
+
+.story-item:nth-child(odd){
+    text-align:right;
+}
+
+.story-item:nth-child(even){
+    margin-left:50%;
+}
+
+.story-dot{
+    position:absolute;
+    top:28px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:white;
+    border:5px solid #ff9fc9;
+    box-shadow:0 0 0 6px rgba(255,159,201,.13);
+}
+
+.story-item:nth-child(odd) .story-dot{
+    right:-9px;
+}
+
+.story-item:nth-child(even) .story-dot{
+    left:-9px;
+    border-color:#9bdcf7;
+}
+
+.story-content{
+    padding:23px;
+    background:rgba(255,255,255,.75);
+    border:1px solid rgba(255,255,255,.9);
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(76,55,68,.08);
+}
+
+.story-content span{
+    font-size:11px;
+    color:#e77caf;
+    font-weight:700;
+}
+
+.story-content h3{
+    margin:5px 0 8px;
+    font-family:'Fredoka',sans-serif;
+    font-size:20px;
+}
+
+.story-content p{
+    font-size:13px;
+    line-height:1.8;
+    color:#786878;
+}
+
+
+/* =========================================================
+   REASONS
+========================================================= */
+
+.reasons-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-
-    gap:18px;
+    gap:20px;
 }
 
-.menu-card{
-    text-decoration:none;
-
-    padding:28px 18px;
-
-    border-radius:25px;
-
-    background:rgba(255,255,255,.55);
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(255,255,255,.8);
-
-    box-shadow:0 15px 35px rgba(100,70,90,.1);
-
-    color:#664c5c;
-
+.reason-card{
+    padding:30px 22px;
+    background:rgba(255,255,255,.78);
+    border:1px solid rgba(255,255,255,.9);
+    border-radius:28px;
+    text-align:center;
+    box-shadow:0 12px 35px rgba(80,55,70,.08);
     transition:.4s;
-
     position:relative;
     overflow:hidden;
 }
 
-.menu-card::before{
+.reason-card::before{
     content:"";
-
     position:absolute;
-
-    width:100px;
-    height:100px;
-
-    background:rgba(255,160,205,.25);
-
+    width:120px;
+    height:120px;
     border-radius:50%;
-
-    top:-50px;
-    right:-50px;
-
-    transition:.4s;
+    background:#ffddeb;
+    right:-55px;
+    top:-55px;
+    transition:.5s;
 }
 
-.menu-card:hover{
-    transform:translateY(-8px) rotate(1deg);
-
-    box-shadow:
-        0 25px 50px rgba(100,70,90,.18);
+.reason-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 22px 45px rgba(80,55,70,.13);
 }
 
-.menu-card:hover::before{
+.reason-card:hover::before{
     transform:scale(2);
 }
 
-.menu-icon{
-    font-size:35px;
-    margin-bottom:12px;
+.reason-icon{
+    position:relative;
+    z-index:2;
+    font-size:38px;
 }
 
-.menu-card h3{
-    margin-bottom:7px;
+.reason-card h3{
+    position:relative;
+    z-index:2;
+    margin-top:12px;
+    font-family:'Fredoka',sans-serif;
+    font-size:19px;
 }
 
-.menu-card p{
+.reason-card p{
+    position:relative;
+    z-index:2;
+    margin-top:8px;
     font-size:12px;
-    line-height:1.6;
-    opacity:.75;
+    line-height:1.8;
+    color:#817181;
 }
 
-/* =========================
-   LOVE NOTE
-========================= */
 
-.note{
-    max-width:720px;
-    margin:auto;
+/* =========================================================
+   LOVE LETTER
+========================================================= */
 
-    padding:40px 28px;
+.letter-area{
+    display:flex;
+    justify-content:center;
+}
 
+.letter{
+    width:100%;
+    max-width:760px;
+    padding:50px 45px;
     background:
-        linear-gradient(
-            rgba(255,255,255,.85),
-            rgba(255,248,252,.85)
+        linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.88)),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 31px,
+            #f4dce7 32px
         );
+    border-radius:10px;
+    box-shadow:0 25px 60px rgba(77,53,68,.13);
+    position:relative;
+    transform:rotate(.5deg);
+}
 
-    border-radius:30px;
+.letter::before{
+    content:"";
+    position:absolute;
+    inset:13px;
+    border:2px dashed #ffc4df;
+    border-radius:7px;
+    pointer-events:none;
+}
 
-    box-shadow:
-        0 20px 60px rgba(110,70,100,.15);
-
+.letter-title{
+    position:relative;
     text-align:center;
+    font-family:'Pacifico',cursive;
+    font-size:32px;
+    color:#e875ad;
+    margin-bottom:30px;
+}
 
+.letter p{
+    position:relative;
+    font-size:14px;
+    line-height:2.15;
+    color:#685767;
+    margin-bottom:17px;
+}
+
+.letter-sign{
+    position:relative;
+    text-align:right;
+    margin-top:30px;
+    font-family:'Pacifico',cursive;
+    color:#e57aad;
+    font-size:22px;
+}
+
+
+/* =========================================================
+   SURPRISE
+========================================================= */
+
+.surprise-section{
+    text-align:center;
+    overflow:hidden;
+}
+
+.surprise-box{
+    max-width:650px;
+    margin:auto;
+    padding:55px 30px;
+    border-radius:35px;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(255,255,255,.9),transparent 30%),
+        linear-gradient(135deg,#ffd3e8,#d5f1ff);
+    box-shadow:0 25px 60px rgba(92,65,82,.13);
     position:relative;
 }
 
-.note::before,
-.note::after{
-    content:"♡";
-    position:absolute;
-    color:#ff9ac5;
-    font-size:40px;
+.gift{
+    width:100px;
+    height:100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
+    animation:giftBounce 1.8s ease-in-out infinite;
 }
 
-.note::before{
-    top:15px;
-    left:20px;
+.surprise-box h2{
+    margin-top:10px;
+    font-family:'Pacifico',cursive;
+    color:#e675ad;
+    font-size:36px;
 }
 
-.note::after{
-    bottom:10px;
-    right:20px;
+.surprise-box p{
+    margin:15px auto 25px;
+    max-width:450px;
+    color:#715f70;
+    font-size:13px;
+    line-height:1.9;
 }
 
-.note p{
-    line-height:2;
-    font-size:15px;
+#surpriseMessage{
+    display:none;
+    margin-top:25px;
+    padding:25px;
+    background:rgba(255,255,255,.75);
+    border-radius:25px;
+    animation:fadeUp .6s ease;
 }
 
-/* =========================
-   FIREWORK BUTTON
-========================= */
+#surpriseMessage.show{
+    display:block;
+}
 
-.firework-section{
+#surpriseMessage strong{
+    display:block;
+    font-family:'Pacifico',cursive;
+    font-size:25px;
+    color:#e674ad;
+    margin-bottom:10px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:60px 20px 100px;
     text-align:center;
 }
 
-.firework-btn{
-    border:none;
+.footer-heart{
+    font-size:30px;
+    animation:heartbeat 1.3s infinite;
+}
 
-    padding:15px 25px;
+footer h3{
+    margin-top:10px;
+    font-family:'Pacifico',cursive;
+    color:#e777ad;
+    font-size:25px;
+}
 
+footer p{
+    margin-top:8px;
+    font-size:11px;
+    color:#9a8998;
+}
+
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music-player{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    z-index:5000;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 12px 8px 8px;
     border-radius:30px;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 30px rgba(69,51,63,.12);
+    border:1px solid rgba(255,255,255,.9);
+}
 
+.music-disc{
+    width:37px;
+    height:37px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff8fc2,#9bdcf7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
     color:white;
+}
 
-    background:linear-gradient(135deg,#ff91be,#8bcfff);
+.music-player.playing .music-disc{
+    animation:spin 3s linear infinite;
+}
 
-    font-size:14px;
+.music-info{
+    font-size:10px;
+    color:#776576;
+    max-width:130px;
+}
 
+.music-info strong{
+    display:block;
+    color:#e477ac;
+    font-size:11px;
+}
+
+.music-toggle{
+    border:none;
+    background:none;
     cursor:pointer;
+    color:#e477ac;
+    font-size:15px;
+}
 
-    box-shadow:0 10px 30px rgba(150,100,160,.2);
 
+/* =========================================================
+   MODAL FOTO
+========================================================= */
+
+.photo-modal{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(40,30,40,.78);
+    backdrop-filter:blur(10px);
+    opacity:0;
+    visibility:hidden;
     transition:.3s;
 }
 
-.firework-btn:hover{
-    transform:scale(1.06);
+.photo-modal.show{
+    opacity:1;
+    visibility:visible;
 }
 
-/* =========================
-   FIREWORK CANVAS
-========================= */
+.modal-content{
+    max-width:500px;
+    max-height:90vh;
+    position:relative;
+    animation:modalIn .45s ease;
+}
+
+.modal-content img{
+    max-width:100%;
+    max-height:80vh;
+    display:block;
+    border:10px solid white;
+    border-radius:5px;
+    box-shadow:0 30px 80px rgba(0,0,0,.3);
+}
+
+.close-modal{
+    position:absolute;
+    top:-20px;
+    right:-20px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:none;
+    background:white;
+    color:#e878ae;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+
+/* =========================================================
+   CANVAS FIREWORK
+========================================================= */
 
 #fireworks{
     position:fixed;
     inset:0;
-
-    width:100%;
-    height:100%;
-
+    z-index:9000;
     pointer-events:none;
-
-    z-index:4000;
 }
 
-/* =========================
-   FOOTER
-========================= */
 
-footer{
-    padding:60px 20px 90px;
+/* =========================================================
+   SPARKLES
+========================================================= */
 
-    text-align:center;
-
-    color:#876678;
-
-    position:relative;
-    z-index:5;
+.sparkle{
+    position:fixed;
+    pointer-events:none;
+    z-index:8000;
+    font-size:13px;
+    animation:sparkleOut .8s ease forwards;
 }
 
-.footer-heart{
-    font-size:35px;
 
-    animation:heartbeat 1.3s infinite;
+/* =========================================================
+   HEART RAIN
+========================================================= */
 
-    margin-bottom:10px;
+.heart-rain{
+    position:fixed;
+    top:-30px;
+    z-index:7000;
+    pointer-events:none;
+    animation:heartFall linear forwards;
 }
 
-/* =========================
+
+/* =========================================================
    SCROLL REVEAL
-========================= */
+========================================================= */
 
 .reveal{
     opacity:0;
     transform:translateY(35px);
-
-    transition:
-        opacity .9s ease,
-        transform .9s ease;
+    transition:opacity .9s ease,transform .9s ease;
 }
 
-.reveal.show{
+.reveal.active{
     opacity:1;
     transform:translateY(0);
 }
 
-/* =========================
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    15%{transform:scale(1.13)}
+    30%{transform:scale(1)}
+    45%{transform:scale(1.1)}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(-5deg)}
+    50%{transform:translateY(-18px) rotate(7deg)}
+}
+
+@keyframes floatAround{
+    0%{transform:translateY(0) rotate(0)}
+    50%{transform:translateY(-30px) rotate(15deg)}
+    100%{transform:translateY(0) rotate(0)}
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% center}
+    100%{background-position:200% center}
+}
+
+@keyframes blob{
+    0%,100%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(30px,-25px) scale(1.1)}
+}
+
+@keyframes giftBounce{
+    0%,100%{transform:translateY(0) rotate(-3deg)}
+    50%{transform:translateY(-12px) rotate(3deg)}
+}
+
+@keyframes spin{
+    from{transform:rotate(0)}
+    to{transform:rotate(360deg)}
+}
+
+@keyframes modalIn{
+    from{
+        transform:scale(.7) translateY(30px);
+        opacity:0;
+    }
+    to{
+        transform:scale(1) translateY(0);
+        opacity:1;
+    }
+}
+
+@keyframes sparkleOut{
+    0%{
+        transform:scale(0) rotate(0);
+        opacity:1;
+    }
+    100%{
+        transform:scale(1.5) rotate(180deg) translateY(-25px);
+        opacity:0;
+    }
+}
+
+@keyframes heartFall{
+    0%{
+        transform:translateY(-30px) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:.9;
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
-@media(max-width:700px){
+@media(max-width:800px){
 
-    nav{
-        padding:10px 12px;
+    .navbar{
+        top:10px;
+        width:calc(100% - 18px);
+        padding:9px 10px;
     }
 
     .logo{
-        font-size:12px;
+        font-size:17px;
     }
 
     .nav-links{
-        gap:2px;
+        display:none;
     }
 
-    .nav-links a{
-        font-size:10px;
-        padding:7px;
+    .hero{
+        padding-top:120px;
     }
 
-    .hero-card{
-        padding:45px 18px;
-        border-radius:30px;
+    .hero h1{
+        font-size:55px;
     }
 
-    .gallery{
+    .hero-sub{
+        font-size:13px;
+    }
+
+    section{
+        padding:75px 15px;
+    }
+
+    .photo-grid{
         grid-template-columns:repeat(2,1fr);
-        gap:18px;
+        gap:25px 15px;
     }
 
     .photo-card{
-        padding:8px 8px 30px;
+        padding:8px 8px 13px;
+    }
+
+    .photo-caption{
+        font-size:12px;
+    }
+
+    .sticker{
+        width:38px;
+        height:38px;
+        font-size:19px;
+        right:-8px;
+        bottom:35px;
+    }
+
+    .reasons-grid{
+        grid-template-columns:1fr;
+    }
+
+    .story-line{
+        left:15px;
+    }
+
+    .story-item,
+    .story-item:nth-child(even){
+        width:100%;
+        margin-left:0;
+        padding:15px 10px 15px 45px;
+        text-align:left;
+    }
+
+    .story-item:nth-child(odd) .story-dot,
+    .story-item:nth-child(even) .story-dot{
+        left:6px;
+        right:auto;
+    }
+
+    .letter{
+        padding:40px 25px;
+    }
+
+    .letter p{
+        font-size:12px;
+    }
+
+    .music-player{
+        bottom:12px;
+        left:12px;
+    }
+
+    .float{
+        display:none;
+    }
+}
+
+@media(max-width:450px){
+
+    .photo-grid{
+        gap:22px 10px;
+    }
+
+    .photo-card{
+        padding:7px 7px 12px;
     }
 
     .photo-caption{
         font-size:10px;
     }
 
-    .menu-grid{
-        grid-template-columns:1fr 1fr;
+    .photo-caption small{
+        font-size:8px;
     }
 
-    .menu-card{
-        padding:22px 14px;
+    .hero h1{
+        font-size:47px;
     }
 
-    .menu-icon{
-        font-size:28px;
+    .section-title{
+        font-size:35px;
     }
-
-    .menu-card h3{
-        font-size:14px;
-    }
-
-    .menu-card p{
-        font-size:10px;
-    }
-
-}
-
-@media(max-width:430px){
-
-    .nav-links a:nth-child(4),
-    .nav-links a:nth-child(5),
-    .nav-links a:nth-child(6){
-        display:none;
-    }
-
-    .gallery{
-        gap:14px;
-    }
-
-    .menu-grid{
-        gap:12px;
-    }
-
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- LOADER -->
 
-<div class="loader" id="loader">
-    <div class="loader-heart">♡</div>
-    <p>sebentar yaaa, ada sesuatu buat abelll...</p>
+<!-- ======================================================
+     LOADING
+======================================================= -->
+
+<div id="loading">
+    <div class="loading-box">
+        <div class="loading-heart">♡</div>
+        <div class="loading-text">loading little moments...</div>
+        <div class="loading-dots">•••</div>
+    </div>
 </div>
 
-<!-- CURSOR -->
 
-<div class="cursor-glow" id="cursorGlow"></div>
+<!-- ======================================================
+     BACKGROUND HEARTS
+======================================================= -->
 
-<!-- FLOATING HEARTS -->
+<div class="bg-heart">♡</div>
+<div class="bg-heart">♡</div>
+<div class="bg-heart">♡</div>
+<div class="bg-heart">♡</div>
 
-<div class="hearts" id="hearts"></div>
 
-<!-- SPARKLES -->
-
-<div class="sparkles" id="sparkles"></div>
-
-<!-- FIREWORK -->
+<!-- ======================================================
+     FIREWORK CANVAS
+======================================================= -->
 
 <canvas id="fireworks"></canvas>
 
-<!-- NAVBAR -->
 
-<nav>
+<!-- ======================================================
+     NAVBAR
+======================================================= -->
 
-    <div class="logo">
-        abelll ♡ iky
-    </div>
+<nav class="navbar">
+
+    <a href="#home" class="logo">
+        abel & iky ♡
+    </a>
 
     <div class="nav-links">
-
         <a href="#home">home</a>
-
-        <a href="#photos">foto</a>
-
-        <a href="#menu">menu</a>
-
-        <a href="cerita.html">cerita</a>
-
-        <a href="surat.html">surat</a>
-
-        <a href="surprise.html">surprise</a>
-
+        <a href="#memories">memories</a>
+        <a href="#story">story</a>
+        <a href="#reasons">reasons</a>
+        <a href="#letter">surat</a>
+        <a href="#surprise">surprise</a>
     </div>
+
+    <button class="music-btn" onclick="toggleMusic()">
+        ♫
+    </button>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- ======================================================
+     MUSIC
+======================================================= -->
 
-<section class="hero" id="home">
+<audio id="music" loop>
+    <source src="I_Lay_My_Love_On_You.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="hero-card">
+<div class="music-player" id="musicPlayer">
 
-        <div class="mini">
-            A LITTLE PLACE FOR US ♡
-        </div>
+    <div class="music-disc">
+        ♫
+    </div>
 
-        <h1>abelll</h1>
+    <div class="music-info">
+        <strong>I Lay My Love On You</strong>
+        abel & iky playlist
+    </div>
 
-        <div class="typing" id="typing"></div>
+    <button class="music-toggle" onclick="toggleMusic()" id="musicToggle">
+        ▶
+    </button>
 
-        <div class="hero-heart">
-            ♡
-        </div>
+</div>
 
-        <p>
-            tempat kecil buat nyimpen<br>
-            cerita, foto, dan momen kita
+
+<!-- ======================================================
+     HERO
+======================================================= -->
+
+<header class="hero" id="home">
+
+    <div class="float one">♡</div>
+    <div class="float two">✦</div>
+    <div class="float three">♡</div>
+    <div class="float four">✧</div>
+
+    <div class="hero-content">
+
+        <span class="small-title">
+            a tiny website made with lots of love ♡
+        </span>
+
+        <h1>
+            little moments<br>
+            with abel
+        </h1>
+
+        <p class="hero-sub">
+            bukan tentang seberapa sempurna sebuah cerita,
+            tapi tentang betapa berharganya seseorang yang
+            membuat hari-hari sederhana terasa jauh lebih berarti
         </p>
 
-        <a href="#photos" class="start-btn">
-            lihat kenangan kita ♡
-        </a>
+        <div class="hero-buttons">
+
+            <a href="#memories" class="btn btn-primary">
+                lihat kenangan ♡
+            </a>
+
+            <button class="btn btn-secondary" onclick="startLoveRain()">
+                pencet ini hehe ✨
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ======================================================
+     MEMORY INTRO
+======================================================= -->
+
+<section class="memory-intro">
+
+    <div class="section-container">
+
+        <div class="memory-note reveal">
+
+            <p>
+                kemarin mungkin cuma terlihat seperti hari biasa,
+                jalan bareng, ketawa, foto-foto, dan pulang lagi
+                tapi entah kenapa hal-hal sederhana itu jadi
+                sesuatu yang pengen aku simpan lamaaa 🤍
+            </p>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- PHOTO SECTION -->
+<!-- ======================================================
+     MEMORIES
+======================================================= -->
 
-<section id="photos">
+<section id="memories">
 
-    <div class="section-title reveal">
+    <div class="section-container">
 
-        <span>OUR LITTLE MEMORIES</span>
+        <div class="section-head reveal">
 
-        <h2>momen bareng abelll 📸</h2>
-
-    </div>
-
-
-    <div class="gallery">
-
-
-        <div class="photo-card reveal" onclick="openPhoto('foto1.jpeg')">
-
-            <div class="tape"></div>
-
-            <img src="foto1.jpeg">
-
-            <div class="photo-caption">
-                our first little memory ♡
+            <div class="section-label">
+                our little gallery
             </div>
+
+            <h2 class="section-title">
+                little memories ♡
+            </h2>
+
+            <p class="section-desc">
+                enam foto, banyak cerita, dan satu orang
+                yang bikin semuanya jadi lebih berharga
+            </p>
 
         </div>
 
 
-        <div class="photo-card reveal" onclick="openPhoto('foto2.jpeg')">
+        <div class="photo-grid">
 
-            <div class="tape"></div>
 
-            <img src="foto2.jpeg">
+            <!-- FOTO 1 -->
 
-            <div class="photo-caption">
-                jangan liatin kita 😭
+            <div class="photo-card reveal"
+                 onclick="openPhoto('foto1.jpeg')">
+
+                <div class="photo-wrap">
+                    <img src="foto1.jpeg" alt="memory 1">
+                </div>
+
+                <div class="photo-caption">
+                    first little memory
+                    <small>♡ abel & iky ♡</small>
+                </div>
+
+                <div class="sticker">
+                    🌷
+                </div>
+
             </div>
+
+
+            <!-- FOTO 2 -->
+
+            <div class="photo-card blue-tape reveal"
+                 onclick="openPhoto('foto2.jpeg')">
+
+                <div class="photo-wrap">
+                    <img src="foto2.jpeg" alt="memory 2">
+                </div>
+
+                <div class="photo-caption">
+                    duo paling gemus
+                    <small>jangan lihat kumisnya 😭</small>
+                </div>
+
+                <div class="sticker">
+                    🧸
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 3 -->
+
+            <div class="photo-card reveal"
+                 onclick="openPhoto('foto3.jpeg')">
+
+                <div class="photo-wrap">
+                    <img src="foto3.jpeg" alt="memory 3">
+                </div>
+
+                <div class="photo-caption">
+                    another silly moment
+                    <small>ketawa terussss</small>
+                </div>
+
+                <div class="sticker">
+                    🩷
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 4 -->
+
+            <div class="photo-card blue-tape reveal"
+                 onclick="openPhoto('foto4.jpeg')">
+
+                <div class="photo-wrap">
+                    <img src="foto4.jpeg" alt="memory 4">
+                </div>
+
+                <div class="photo-caption">
+                    pretty abelll
+                    <small>with her flowers 🌷</small>
+                </div>
+
+                <div class="sticker">
+                    🌸
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 5 -->
+
+            <div class="photo-card reveal"
+                 onclick="openPhoto('foto5.jpeg')">
+
+                <div class="photo-wrap">
+                    <img src="foto5.jpeg" alt="memory 5">
+                </div>
+
+                <div class="photo-caption">
+                    one more picture
+                    <small>because one isn't enough</small>
+                </div>
+
+                <div class="sticker">
+                    💗
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 6 -->
+
+            <div class="photo-card blue-tape reveal"
+                 onclick="openPhoto('foto6.jpeg')">
+
+                <div class="photo-wrap">
+                    <img src="foto6.jpeg" alt="memory 6">
+                </div>
+
+                <div class="photo-caption">
+                    favorite memory
+                    <small>saved forever ♡</small>
+                </div>
+
+                <div class="sticker">
+                    🦋
+                </div>
+
+            </div>
+
 
         </div>
 
 
-        <div class="photo-card reveal" onclick="openPhoto('foto3.jpeg')">
+        <!-- MINI POLAROIDS -->
 
-            <div class="tape"></div>
+        <div class="mini-memories">
 
-            <img src="foto3.jpeg">
+            <div class="mini-card reveal">
+                <img src="foto1.jpeg" alt="">
+                <p>hehe kitaa ♡</p>
+            </div>
 
-            <div class="photo-caption">
-                duo paling gemus
+            <div class="mini-card reveal">
+                <img src="foto4.jpeg" alt="">
+                <p>cantiknya abelll</p>
+            </div>
+
+            <div class="mini-card reveal">
+                <img src="foto6.jpeg" alt="">
+                <p>another day with you</p>
             </div>
 
         </div>
-
-
-        <div class="photo-card reveal" onclick="openPhoto('foto4.jpeg')">
-
-            <div class="tape"></div>
-
-            <img src="foto4.jpeg">
-
-            <div class="photo-caption">
-                abelll with her flowers 🌷
-            </div>
-
-        </div>
-
-
-        <div class="photo-card reveal" onclick="openPhoto('foto5.jpeg')">
-
-            <div class="tape"></div>
-
-            <img src="foto5.jpeg">
-
-            <div class="photo-caption">
-                pretty girl ♡
-            </div>
-
-        </div>
-
-
-        <div class="photo-card reveal" onclick="openPhoto('foto6.jpeg')">
-
-            <div class="tape"></div>
-
-            <img src="foto6.jpeg">
-
-            <div class="photo-caption">
-                another memory to keep
-            </div>
-
-        </div>
-
 
     </div>
 
 </section>
 
 
-<!-- MENU -->
+<!-- ======================================================
+     STORY
+======================================================= -->
 
-<section id="menu">
+<section id="story">
 
-    <div class="section-title reveal">
+    <div class="section-container">
 
-        <span>OUR LITTLE WORLD</span>
+        <div class="section-head reveal">
 
-        <h2>mau buka yang mana? ♡</h2>
+            <div class="section-label">
+                our tiny story
+            </div>
+
+            <h2 class="section-title">
+                how it started ♡
+            </h2>
+
+            <p class="section-desc">
+                sebuah cerita kecil tentang dua orang
+                yang awalnya bahkan tidak menyangka
+                bakal sampai sejauh ini
+            </p>
+
+        </div>
+
+
+        <div class="story-box">
+
+            <div class="story-line"></div>
+
+
+            <div class="story-item reveal">
+
+                <div class="story-dot"></div>
+
+                <div class="story-content">
+
+                    <span>01 — unexpectedly</span>
+
+                    <h3>ketemu tanpa rencana</h3>
+
+                    <p>
+                        awalnya kita ketemu secara nggak sengaja
+                        di Tele, tanpa pernah tahu kalau pertemuan
+                        kecil itu nantinya bakal jadi sesuatu
+                        yang berarti.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="story-item reveal">
+
+                <div class="story-dot"></div>
+
+                <div class="story-content">
+
+                    <span>02 — slowly</span>
+
+                    <h3>mulai mengenal kamu</h3>
+
+                    <p>
+                        waktu itu aku sebenarnya lagi nggak
+                        kepikiran buat dekat sama siapa-siapa,
+                        tapi ternyata ada seseorang sebaik kamu
+                        yang datang pelan-pelan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="story-item reveal">
+
+                <div class="story-dot"></div>
+
+                <div class="story-content">
+
+                    <span>03 — somehow</span>
+
+                    <h3>kamu bikin aku nyaman</h3>
+
+                    <p>
+                        dari obrolan sederhana sampai hal-hal kecil
+                        yang mungkin buat kamu biasa aja,
+                        semuanya perlahan bikin aku nyaman.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="story-item reveal">
+
+                <div class="story-dot"></div>
+
+                <div class="story-content">
+
+                    <span>04 — today</span>
+
+                    <h3>sekarang ada kita</h3>
+
+                    <p>
+                        dan sekarang kita punya banyak hal kecil
+                        untuk dikenang, termasuk hari kemarin
+                        yang akhirnya punya tempat sendiri
+                        di website kecil ini.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
 
     </div>
 
+</section>
 
-    <div class="menu-grid">
 
+<!-- ======================================================
+     REASONS
+======================================================= -->
 
-        <a href="cerita.html" class="menu-card reveal">
+<section id="reasons">
 
-            <div class="menu-icon">
-                📖
+    <div class="section-container">
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+                just because
             </div>
 
-            <h3>cerita kita</h3>
+            <h2 class="section-title">
+                alasan aku sayang kamu ♡
+            </h2>
 
-            <p>
-                cerita kecil tentang bagaimana semuanya dimulai
+            <p class="section-desc">
+                sebenarnya masih banyak banget,
+                tapi kalau ditulis semuanya website-nya
+                bisa sampai besok 😭
             </p>
 
-        </a>
+        </div>
 
 
-        <a href="reasons.html" class="menu-card reveal">
+        <div class="reasons-grid">
 
-            <div class="menu-icon">
-                💗
+
+            <div class="reason-card reveal">
+
+                <div class="reason-icon">
+                    🌷
+                </div>
+
+                <h3>kamu baik</h3>
+
+                <p>
+                    ada cara kamu memperlakukan aku
+                    yang bikin aku merasa dihargai
+                    dan diterima.
+                </p>
+
             </div>
 
-            <h3>alasan aku sayang</h3>
 
-            <p>
-                beberapa alasan kenapa abelll begitu berarti
-            </p>
+            <div class="reason-card reveal">
 
-        </a>
+                <div class="reason-icon">
+                    🧸
+                </div>
 
+                <h3>kamu gemus</h3>
 
-        <a href="surat.html" class="menu-card reveal">
+                <p>
+                    bahkan ketika kamu cuma ngelakuin
+                    hal sederhana, entah kenapa
+                    tetap aja bikin aku senyum.
+                </p>
 
-            <div class="menu-icon">
-                💌
             </div>
 
-            <h3>surat kecil</h3>
 
-            <p>
-                sesuatu yang mungkin lebih enak dibaca pelan-pelan
-            </p>
+            <div class="reason-card reveal">
 
-        </a>
+                <div class="reason-icon">
+                    💗
+                </div>
 
+                <h3>kamu bikin nyaman</h3>
 
-        <a href="timeline.html" class="menu-card reveal">
+                <p>
+                    rasanya menyenangkan punya seseorang
+                    yang bisa diajak cerita tanpa harus
+                    selalu menjelaskan semuanya.
+                </p>
 
-            <div class="menu-icon">
-                🕰️
             </div>
 
-            <h3>timeline kita</h3>
 
-            <p>
-                kumpulan momen yang pelan-pelan jadi cerita
-            </p>
+            <div class="reason-card reveal">
 
-        </a>
+                <div class="reason-icon">
+                    🦋
+                </div>
 
+                <h3>kamu bikin berubah</h3>
 
-        <a href="untukabel.html" class="menu-card reveal">
+                <p>
+                    kamu perlahan bikin aku percaya
+                    kalau ternyata masih ada hubungan
+                    yang terasa tulus dan hangat.
+                </p>
 
-            <div class="menu-icon">
-                🧸
             </div>
 
-            <h3>untuk abelll</h3>
 
-            <p>
-                halaman kecil yang dibuat khusus buat kamu
-            </p>
+            <div class="reason-card reveal">
 
-        </a>
+                <div class="reason-icon">
+                    ☁️
+                </div>
+
+                <h3>kamu adalah kamu</h3>
+
+                <p>
+                    bukan karena kamu harus sempurna,
+                    tapi karena aku suka kamu
+                    dengan segala sisi kamu.
+                </p>
+
+            </div>
 
 
-        <a href="surprise.html" class="menu-card reveal">
+            <div class="reason-card reveal">
 
-            <div class="menu-icon">
+                <div class="reason-icon">
+                    💐
+                </div>
+
+                <h3>dan masih banyak lagi</h3>
+
+                <p>
+                    sisanya nanti aku ceritain langsung,
+                    biar kamu nggak cuma baca
+                    dari website ini hehe.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     LETTER
+======================================================= -->
+
+<section id="letter">
+
+    <div class="section-container">
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+                a little letter
+            </div>
+
+            <h2 class="section-title">
+                for abelll ♡
+            </h2>
+
+        </div>
+
+
+        <div class="letter-area">
+
+            <div class="letter reveal">
+
+                <div class="letter-title">
+                    untuk kamu
+                </div>
+
+                <p>
+                    abelll, mungkin website kecil ini kelihatannya
+                    sederhana, tapi aku bikin ini karena aku pengen
+                    punya satu tempat buat nyimpen hal-hal kecil
+                    tentang kita.
+                </p>
+
+                <p>
+                    dari awal aku ketemu kamu, aku nggak pernah
+                    menyangka bakal sampai punya sebanyak ini
+                    cerita dan kenangan bareng kamu.
+                </p>
+
+                <p>
+                    aku juga mau bilang makasih karena kamu datang
+                    di saat aku sebenarnya lagi nggak berharap
+                    apa-apa dari seseorang.
+                </p>
+
+                <p>
+                    ternyata kamu bisa bikin aku percaya lagi
+                    sama rasa nyaman, rasa sayang, dan hal-hal
+                    kecil yang sebelumnya sempat aku pikir
+                    nggak akan aku rasain lagi.
+                </p>
+
+                <p>
+                    jadi kalau suatu hari nanti kita melihat
+                    foto-foto ini lagi, semoga kita bisa tersenyum
+                    dan bilang, "ternyata kita pernah selucu ini yaa" 😭
+                </p>
+
+                <p>
+                    semoga masih banyak hari sederhana lainnya
+                    yang bisa kita lewati bareng, nggak harus selalu
+                    mewah atau spesial, yang penting ada kamu.
+                </p>
+
+                <div class="letter-sign">
+                    sayang kamu,<br>
+                    iky ♡
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     SURPRISE
+======================================================= -->
+
+<section id="surprise" class="surprise-section">
+
+    <div class="section-container">
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+                one last thing
+            </div>
+
+            <h2 class="section-title">
+                ada sesuatu buat kamu
+            </h2>
+
+        </div>
+
+
+        <div class="surprise-box reveal">
+
+            <div class="gift">
                 🎁
             </div>
 
-            <h3>jangan dibuka</h3>
+            <h2>
+                jangan langsung pergi
+            </h2>
 
             <p>
-                serius, ini katanya rahasia... 👀
+                pencet tombol di bawah dulu,
+                ada pesan kecil yang sengaja aku simpan
+                khusus buat kamu
             </p>
 
-        </a>
+            <button class="btn btn-primary"
+                    onclick="showSurprise()">
+                buka pesannya ♡
+            </button>
 
 
-    </div>
+            <div id="surpriseMessage">
 
-</section>
+                <strong>
+                    abelll sayanggg 🤍
+                </strong>
 
+                <p>
+                    makasih yaa udah hadir,
+                    makasih udah jadi bagian dari
+                    cerita kecil aku,
+                    dan makasih udah bikin banyak
+                    hari terasa lebih menyenangkan.
+                </p>
 
-<!-- LOVE NOTE -->
+                <p>
+                    jangan berubah jadi orang lain yaa,
+                    tetap jadi abelll yang aku kenal,
+                    yang gemus, baik, dan selalu punya
+                    tempat spesial di hati aku ♡
+                </p>
 
-<section>
+                <div style="font-size:28px;margin-top:15px;">
+                    💗 🦋 🌷 🧸 💐
+                </div>
 
-    <div class="section-title reveal">
+            </div>
 
-        <span>A LITTLE NOTE</span>
-
-        <h2>buat abelll ♡</h2>
-
-    </div>
-
-
-    <div class="note reveal">
-
-        <p>
-
-            mungkin website ini kecil dan sederhana,
-
-            tapi setiap bagian di dalamnya dibuat karena
-
-            ada seseorang yang berarti banget buat aku,
-
-            yaitu kamu, abelll 🤍
-
-            <br><br>
-
-            makasih yaa udah hadir,
-
-            makasih udah bikin banyak momen kecil
-
-            yang akhirnya jadi sesuatu yang ingin aku simpan
-
-            lamaaa banget
-
-            <br><br>
-
-            semoga nanti kita punya lebih banyak foto,
-
-            lebih banyak cerita,
-
-            lebih banyak ketawa,
-
-            dan lebih banyak hari yang bisa kita kenang bareng
-
-            <br><br>
-
-            <b>
-                abelll sayang iky ♡
-            </b>
-
-        </p>
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- FIREWORK -->
-
-<section class="firework-section">
-
-    <div class="section-title reveal">
-
-        <span>ONE MORE THING</span>
-
-        <h2>pencet ini deh 👀</h2>
-
-    </div>
-
-    <button class="firework-btn reveal" onclick="launchFireworks()">
-
-        🎆 buat abelll
-
-    </button>
-
-</section>
-
-
-<!-- FOOTER -->
+<!-- ======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
@@ -1216,235 +2130,194 @@ footer{
         ♡
     </div>
 
+    <h3>
+        made with love for abel
+    </h3>
+
     <p>
-        made with love for abelll
+        little moments • little memories • big feelings
     </p>
 
-    <small>
-        abelll sayang iky banyaaa banyaaa 🤍
-    </small>
+    <p style="margin-top:15px;">
+        abel sayang iky ♡
+    </p>
 
 </footer>
 
 
-<!-- PHOTO MODAL -->
+<!-- ======================================================
+     PHOTO MODAL
+======================================================= -->
 
-<div class="photo-modal" id="photoModal" onclick="closePhoto()">
+<div class="photo-modal" id="photoModal">
 
-    <div class="close-modal">
-        ×
+    <div class="modal-content">
+
+        <button class="close-modal"
+                onclick="closePhoto()">
+            ×
+        </button>
+
+        <img id="modalImage" src="" alt="memory">
+
     </div>
-
-    <img id="modalImage" src="">
 
 </div>
 
 
-<!-- MUSIC -->
-
-<audio id="music" loop>
-
-    <source src="I_Lay_My_Love_On_You.mp3" type="audio/mpeg">
-
-</audio>
-
-<button class="music-btn" onclick="toggleMusic()" id="musicBtn">
-    ♫
-</button>
-
+<!-- ======================================================
+     JAVASCRIPT
+======================================================= -->
 
 <script>
 
-/* =========================
-   LOADER
-========================= */
+/* ========================================================
+   LOADING
+======================================================== */
 
 window.addEventListener("load",function(){
 
     setTimeout(function(){
 
-        document.getElementById("loader").style.opacity="0";
+        document.getElementById("loading")
+            .classList.add("hide");
 
-        setTimeout(function(){
-
-            document.getElementById("loader").style.display="none";
-
-        },1000);
-
-    },1000);
+    },900);
 
 });
 
 
-/* =========================
-   TYPING
-========================= */
-
-const text =
-"somewhere between all these little moments, i found something special ♡";
-
-let index=0;
-
-function typeText(){
-
-    if(index < text.length){
-
-        document.getElementById("typing").textContent += text.charAt(index);
-
-        index++;
-
-        setTimeout(typeText,45);
-
-    }
-
-}
-
-setTimeout(typeText,1200);
-
-
-/* =========================
-   FLOATING HEARTS
-========================= */
-
-function createHeart(){
-
-    const heart=document.createElement("div");
-
-    heart.className="heart";
-
-    const symbols=["♡","♥","💗","💖","💕","✦"];
-
-    heart.innerHTML=
-        symbols[Math.floor(Math.random()*symbols.length)];
-
-    heart.style.left=
-        Math.random()*100+"%";
-
-    heart.style.fontSize=
-        (12+Math.random()*20)+"px";
-
-    heart.style.animationDuration=
-        (6+Math.random()*7)+"s";
-
-    document.getElementById("hearts").appendChild(heart);
-
-    setTimeout(function(){
-
-        heart.remove();
-
-    },14000);
-
-}
-
-setInterval(createHeart,500);
-
-
-/* =========================
-   SPARKLES
-========================= */
-
-for(let i=0;i<45;i++){
-
-    const spark=document.createElement("div");
-
-    spark.className="spark";
-
-    spark.style.left=Math.random()*100+"%";
-
-    spark.style.top=Math.random()*100+"%";
-
-    spark.style.animationDelay=
-        Math.random()*3+"s";
-
-    document.getElementById("sparkles").appendChild(spark);
-
-}
-
-
-/* =========================
-   CURSOR GLOW
-========================= */
-
-document.addEventListener("mousemove",function(e){
-
-    document.getElementById("cursorGlow").style.left=
-        e.clientX+"px";
-
-    document.getElementById("cursorGlow").style.top=
-        e.clientY+"px";
-
-});
-
-
-/* =========================
+/* ========================================================
    MUSIC
-========================= */
+======================================================== */
 
-const music=document.getElementById("music");
+const music =
+    document.getElementById("music");
 
-let playing=false;
+const musicPlayer =
+    document.getElementById("musicPlayer");
+
+const musicToggle =
+    document.getElementById("musicToggle");
+
 
 function toggleMusic(){
 
-    if(playing){
+    if(music.paused){
 
-        music.pause();
+        music.play()
+        .then(()=>{
 
-        document.getElementById("musicBtn").innerHTML="♫";
+            musicPlayer.classList.add("playing");
+            musicToggle.innerHTML="❚❚";
 
-        playing=false;
+        })
+        .catch(()=>{
+
+            alert("pencet lagi tombol musiknya yaa ♡");
+
+        });
 
     }else{
 
-        music.play();
+        music.pause();
 
-        document.getElementById("musicBtn").innerHTML="❚❚";
-
-        playing=true;
+        musicPlayer.classList.remove("playing");
+        musicToggle.innerHTML="▶";
 
     }
 
 }
 
 
-/* =========================
+/* ========================================================
    PHOTO MODAL
-========================= */
+======================================================== */
+
+const photoModal =
+    document.getElementById("photoModal");
+
+const modalImage =
+    document.getElementById("modalImage");
+
 
 function openPhoto(src){
 
-    document.getElementById("modalImage").src=src;
+    modalImage.src=src;
 
-    document.getElementById("photoModal")
-        .classList.add("active");
+    photoModal.classList.add("show");
 
 }
+
 
 function closePhoto(){
 
-    document.getElementById("photoModal")
-        .classList.remove("active");
+    photoModal.classList.remove("show");
 
 }
 
 
-/* =========================
-   SCROLL REVEAL
-========================= */
+photoModal.addEventListener("click",function(e){
 
-const reveals=document.querySelectorAll(".reveal");
+    if(e.target===photoModal){
+
+        closePhoto();
+
+    }
+
+});
+
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        closePhoto();
+
+    }
+
+});
+
+
+/* ========================================================
+   SURPRISE
+======================================================== */
+
+function showSurprise(){
+
+    const message =
+        document.getElementById("surpriseMessage");
+
+    message.classList.add("show");
+
+    startFireworks();
+
+    startLoveRain();
+
+}
+
+
+/* ========================================================
+   SCROLL REVEAL
+======================================================== */
+
+const reveals =
+    document.querySelectorAll(".reveal");
+
 
 function revealOnScroll(){
 
-    const windowHeight=window.innerHeight;
+    reveals.forEach(function(element){
 
-    reveals.forEach(function(el){
+        const windowHeight =
+            window.innerHeight;
 
-        const top=el.getBoundingClientRect().top;
+        const elementTop =
+            element.getBoundingClientRect().top;
 
-        if(top < windowHeight-70){
+        if(elementTop < windowHeight - 80){
 
-            el.classList.add("show");
+            element.classList.add("active");
 
         }
 
@@ -1452,63 +2325,192 @@ function revealOnScroll(){
 
 }
 
+
 window.addEventListener("scroll",revealOnScroll);
 
 revealOnScroll();
 
 
-/* =========================
-   FIREWORKS
-========================= */
+/* ========================================================
+   SPARKLE WHEN CLICK
+======================================================== */
 
-const canvas=document.getElementById("fireworks");
+document.addEventListener("click",function(e){
 
-const ctx=canvas.getContext("2d");
+    if(
+        e.target.closest("button") ||
+        e.target.closest("a")
+    ){
+        return;
+    }
 
-let particles=[];
+    createSparkle(
+        e.clientX,
+        e.clientY
+    );
 
-function resizeCanvas(){
+});
 
-    canvas.width=window.innerWidth;
 
-    canvas.height=window.innerHeight;
+function createSparkle(x,y){
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className="sparkle";
+
+    const symbols=[
+        "✦",
+        "✧",
+        "♡",
+        "⋆",
+        "✿"
+    ];
+
+    sparkle.innerHTML =
+        symbols[
+            Math.floor(
+                Math.random()*symbols.length
+            )
+        ];
+
+    sparkle.style.left=x+"px";
+    sparkle.style.top=y+"px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(function(){
+
+        sparkle.remove();
+
+    },800);
 
 }
 
+
+/* ========================================================
+   LOVE RAIN
+======================================================== */
+
+function startLoveRain(){
+
+    for(let i=0;i<25;i++){
+
+        setTimeout(function(){
+
+            const heart =
+                document.createElement("div");
+
+            heart.className="heart-rain";
+
+            const symbols=[
+                "♡",
+                "♥",
+                "💗",
+                "💖",
+                "✦",
+                "🌸"
+            ];
+
+            heart.innerHTML=
+                symbols[
+                    Math.floor(
+                        Math.random()*symbols.length
+                    )
+                ];
+
+            heart.style.left=
+                Math.random()*100+"vw";
+
+            heart.style.fontSize=
+                (12+Math.random()*20)+"px";
+
+            heart.style.animationDuration=
+                (3+Math.random()*4)+"s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function(){
+
+                heart.remove();
+
+            },7000);
+
+        },i*100);
+
+    }
+
+}
+
+
+/* ========================================================
+   FIREWORK SYSTEM
+======================================================== */
+
+const canvas =
+    document.getElementById("fireworks");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles=[];
+
+
+function resizeCanvas(){
+
+    canvas.width=
+        window.innerWidth;
+
+    canvas.height=
+        window.innerHeight;
+
+}
+
+
 resizeCanvas();
 
-window.addEventListener("resize",resizeCanvas);
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
 
 
 function createFirework(x,y){
 
     const colors=[
-        "#ff8fbd",
-        "#8bd3ff",
-        "#ffd166",
+        "#ff9fc9",
+        "#a5ddfa",
+        "#ffd4e7",
         "#ffffff",
-        "#c7a6ff"
+        "#ffb2d5"
     ];
 
-    for(let i=0;i<80;i++){
+    for(let i=0;i<70;i++){
 
         const angle=
-            Math.PI*2*i/80;
+            Math.random()*Math.PI*2;
 
         const speed=
-            Math.random()*5+2;
+            2+Math.random()*5;
 
         particles.push({
 
             x:x,
-
             y:y,
 
-            vx:Math.cos(angle)*speed,
+            vx:
+                Math.cos(angle)*speed,
 
-            vy:Math.sin(angle)*speed,
+            vy:
+                Math.sin(angle)*speed,
 
-            life:100,
+            life:1,
+
+            decay:
+                .012+Math.random()*.018,
+
+            size:
+                1+Math.random()*3,
 
             color:
                 colors[
@@ -1533,24 +2535,29 @@ function animateFireworks(){
         canvas.height
     );
 
+    particles=
+        particles.filter(
+            p=>p.life>0
+        );
+
     particles.forEach(function(p){
 
         p.x+=p.vx;
-
         p.y+=p.vy;
 
-        p.vy+=.05;
+        p.vy+=.035;
 
-        p.life--;
+        p.life-=p.decay;
 
-        ctx.globalAlpha=p.life/100;
+        ctx.globalAlpha=
+            Math.max(p.life,0);
 
         ctx.beginPath();
 
         ctx.arc(
             p.x,
             p.y,
-            2.2,
+            p.size,
             0,
             Math.PI*2
         );
@@ -1561,11 +2568,6 @@ function animateFireworks(){
 
     });
 
-    particles=
-        particles.filter(
-            p=>p.life>0
-        );
-
     ctx.globalAlpha=1;
 
     requestAnimationFrame(
@@ -1574,76 +2576,110 @@ function animateFireworks(){
 
 }
 
+
 animateFireworks();
 
 
-function launchFireworks(){
+function startFireworks(){
 
-    for(let i=0;i<5;i++){
+    const positions=[
+
+        [
+            window.innerWidth*.25,
+            window.innerHeight*.28
+        ],
+
+        [
+            window.innerWidth*.72,
+            window.innerHeight*.25
+        ],
+
+        [
+            window.innerWidth*.5,
+            window.innerHeight*.18
+        ],
+
+        [
+            window.innerWidth*.35,
+            window.innerHeight*.45
+        ],
+
+        [
+            window.innerWidth*.7,
+            window.innerHeight*.45
+        ]
+
+    ];
+
+    positions.forEach(function(pos,index){
 
         setTimeout(function(){
 
             createFirework(
-
-                Math.random()*canvas.width,
-
-                150+
-                Math.random()*
-                (canvas.height*.45)
-
+                pos[0],
+                pos[1]
             );
 
-        },i*350);
+        },index*350);
 
-    }
+    });
 
 }
 
 
-/* =========================
-   CLICK HEART EFFECT
-========================= */
+/* ========================================================
+   AUTOMATIC SMALL SPARKLES
+======================================================== */
 
-document.addEventListener("click",function(e){
+setInterval(function(){
 
-    const heart=document.createElement("div");
+    if(
+        Math.random()>.45
+    ){
 
-    heart.innerHTML="♡";
+        createSparkle(
+            Math.random()*window.innerWidth,
+            Math.random()*window.innerHeight
+        );
 
-    heart.style.position="fixed";
+    }
 
-    heart.style.left=e.clientX+"px";
+},1800);
 
-    heart.style.top=e.clientY+"px";
 
-    heart.style.pointerEvents="none";
+/* ========================================================
+   DOUBLE CLICK = FIREWORK
+======================================================== */
 
-    heart.style.color="#ff8fbd";
+document.addEventListener(
+    "dblclick",
+    function(e){
 
-    heart.style.fontSize="24px";
+        createFirework(
+            e.clientX,
+            e.clientY
+        );
 
-    heart.style.zIndex="9999";
+        startLoveRain();
 
-    heart.style.transition="1s";
+    }
+);
 
-    document.body.appendChild(heart);
 
-    setTimeout(function(){
+/* ========================================================
+   CONSOLE MESSAGE
+======================================================== */
 
-        heart.style.transform=
-            "translateY(-70px) scale(1.5)";
+console.log(
+`
+♡ little moments with abel ♡
 
-        heart.style.opacity="0";
+website ini dibuat khusus
+untuk menyimpan kenangan kecil.
 
-    },20);
-
-    setTimeout(function(){
-
-        heart.remove();
-
-    },1000);
-
-});
+abel sayang iky 🤍
+`
+);
 
 </script>
 
