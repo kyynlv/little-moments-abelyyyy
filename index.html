@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>little moments abel ♡</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;color:#513d4b;background:linear-gradient(160deg,#fff7fb,#ffe6f1 50%,#e7f5ff);overflow-x:hidden}
+a{text-decoration:none}.wrap{max-width:760px;margin:auto;padding:0 16px 90px}
+.hero{text-align:center;padding:58px 10px 30px}.mini{font-size:12px;letter-spacing:2px;color:#a56d8b;text-transform:uppercase}
+h1{font-size:clamp(42px,12vw,72px);margin:12px 0;color:#e78db3}.hero p{line-height:1.7;color:#745d69}
+.nav{position:sticky;top:10px;z-index:20;display:flex;gap:7px;overflow:auto;padding:8px;background:#ffffffc9;backdrop-filter:blur(12px);border-radius:22px}
+.nav button{border:0;background:#fff5fa;color:#9a6380;padding:10px 14px;border-radius:16px;white-space:nowrap;font-weight:700}
+.nav button.active{background:#f7a9c8;color:white}
+.card{background:#ffffffcf;border:1px solid #fff;border-radius:28px;padding:22px;margin-top:18px;box-shadow:0 14px 45px #b983a522}
+.section-title{text-align:center;color:#d878a4;margin:5px 0 8px}.section-sub{text-align:center;line-height:1.6;color:#826d78}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.frame{position:relative;background:#fff;padding:8px 8px 35px;border-radius:8px;box-shadow:0 9px 22px #5c3c4c22;transform:rotate(-1.5deg);transition:.25s}
+.frame:nth-child(even){transform:rotate(1.5deg)}.frame:hover{transform:translateY(-5px) rotate(0)}
+.frame img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;border-radius:4px;cursor:pointer}
+.caption{position:absolute;bottom:9px;left:8px;right:8px;text-align:center;font-size:11px;color:#8b6878;font-weight:700}
+.tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:62px;height:19px;background:#cfeeffc9;z-index:2}
+.frame:nth-child(even) .tape{background:#ffc9dfc9}
+.story p,.note p{line-height:1.85}.highlight{background:linear-gradient(135deg,#ffe2ee,#e4f4ff);border-radius:20px;padding:17px;text-align:center;font-weight:700;color:#9a6380}
+.memory{display:grid;grid-template-columns:52px 1fr;gap:13px;margin:15px 0}.icon{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#ffc2dc,#cfeeff);font-size:24px}
+.memory h3{margin:3px 0 6px;color:#9d6280}.memory p{margin:0;line-height:1.65}
+.music{position:fixed;right:16px;bottom:16px;z-index:30;border:0;border-radius:999px;padding:13px 17px;background:#f59fc2;color:#fff;font-weight:800;box-shadow:0 8px 24px #9b567644}
+.footer{text-align:center;padding:30px 10px;color:#987987;font-size:13px;line-height:1.7}
+#lightbox{display:none;position:fixed;inset:0;z-index:50;background:#20151dcc;align-items:center;justify-content:center;padding:18px}
+#lightbox.show{display:flex}#lightbox img{max-width:94vw;max-height:88vh;border-radius:16px}.close{position:fixed;right:16px;top:10px;color:white;background:0;border:0;font-size:32px}
+@media(max-width:520px){.card{padding:18px}.gallery{gap:11px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero" id="home">
+<div>♡</div><div class="mini">a tiny place for us</div>
+<h1>Abel & Iky</h1>
+<p>kumpulan kecil dari momen yang mungkin sederhana, tapi selalu punya tempat sendiri di hati aku</p>
+</header>
+
+<nav class="nav">
+<button class="active" onclick="go('home',this)">home</button>
+<button onclick="go('moments',this)">our moments</button>
+<button onclick="go('story',this)">our story</button>
+<button onclick="go('note',this)">little note</button>
+</nav>
+
+<section class="card" id="moments">
+<h2 class="section-title">our little moments ♡</h2>
+<p class="section-sub">beberapa foto dari hari kemarin, disimpan di sini biar bisa dilihat lagi kapan-kapan</p>
+<div class="gallery">
+<div class="frame"><span class="tape"></span><img src="foto/foto1.jpeg" onclick="openImg(this.src)"><div class="caption">our first frame ♡</div></div>
+<div class="frame"><span class="tape"></span><img src="foto/foto2.jpeg" onclick="openImg(this.src)"><div class="caption">ketawa bareng</div></div>
+<div class="frame"><span class="tape"></span><img src="foto/foto3.jpeg" onclick="openImg(this.src)"><div class="caption">mode paling lucu</div></div>
+<div class="frame"><span class="tape"></span><img src="foto/foto4.jpeg" onclick="openImg(this.src)"><div class="caption">my pretty girl</div></div>
+<div class="frame"><span class="tape"></span><img src="foto/foto5.jpeg" onclick="openImg(this.src)"><div class="caption">bunga buat abel ♡</div></div>
+<div class="frame"><span class="tape"></span><img src="foto/foto6.jpeg" onclick="openImg(this.src)"><div class="caption">satu hari yang manis</div></div>
+</div>
+</section>
+
+<section class="card story" id="story">
+<h2 class="section-title">our story ♡</h2>
+<p>aku kenal kamu tanpa pernah benar-benar merencanakannya, cuma berawal dari obrolan di tele, sampai akhirnya aku punya seseorang yang ternyata bisa bikin hari-hari aku terasa berbeda</p>
+<p>waktu itu hati aku sempat mati rasa, aku bahkan nggak kepikiran buat dekat sama siapa-siapa lagi karena hal-hal dari masa lalu</p>
+<p>tapi kemudian ada kamu, seseorang yang pelan-pelan bikin aku nyaman, bikin aku senyum lagi, dan bikin aku percaya kalau ternyata rasa sayang bisa datang dengan cara yang sederhana</p>
+<div class="highlight">kalau suatu hari kamu lupa betapa berharganya kamu, buka halaman ini lagi ya, karena ada seseorang di sini yang bersyukur banget pernah menemukan kamu ♡</div>
+</section>
+
+<section class="card note" id="note">
+<h2 class="section-title">little note for abel</h2>
+<div class="memory"><div class="icon">🌷</div><div><h3>makasih ya sayang</h3><p>makasih sudah hadir dan jadi bagian dari hari-hari aku, aku nggak selalu jago ngomongin perasaan, tapi aku harap kamu selalu tahu kalau kamu berarti banget buat aku</p></div></div>
+<div class="memory"><div class="icon">🫶🏻</div><div><h3>nggak perlu sempurna</h3><p>aku nggak butuh kamu jadi sempurna, jadi kamu yang apa adanya aja udah cukup buat aku</p></div></div>
+<div class="memory"><div class="icon">💗</div><div><h3>buat hari-hari berikutnya</h3><p>semoga nanti bakal ada lebih banyak foto, lebih banyak cerita, lebih banyak ketawa, dan lebih banyak momen kecil yang bisa kita simpan di sini</p></div></div>
+<div class="highlight">abel sayang iky, dan iky sayang abel banyaaa banyaaa ♡</div>
+</section>
+
+<footer class="footer">dibuat kecil-kecilan khusus buat abel ♡<br>one day, we'll look back at these little moments and smile</footer>
+</div>
+
+<button class="music" onclick="toggleMusic()" id="musicBtn">♫ music</button>
+<audio id="audio" loop><source src="I_Lay_My_Love_On_You.mp3" type="audio/mpeg"></audio>
+<div id="lightbox" onclick="closeImg()"><button class="close">×</button><img id="lightboxImg"></div>
+
+<script>
+function go(id,b){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+function openImg(s){document.getElementById('lightboxImg').src=s;document.getElementById('lightbox').classList.add('show')}
+function closeImg(){document.getElementById('lightbox').classList.remove('show')}
+const a=document.getElementById('audio'),m=document.getElementById('musicBtn');
+function toggleMusic(){if(a.paused){a.play().then(()=>m.textContent='❚❚ music').catch(()=>alert('masukkan file I_Lay_My_Love_On_You.mp3 ke folder website dulu ♡'))}else{a.pause();m.textContent='♫ music'}}
+</script>
+</body>
+</html>
